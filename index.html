@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MVP da landing page B2B Coleções em Movimento — Hilst Joias em Prata 925.">
+  <title>Coleções em Movimento | Hilst Joias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#201a1b;--muted:#71696b;--rose:#c99595;--rose-dark:#7e5056;--blush:#f4e9e7;
+      --cream:#fbf8f3;--paper:#fff;--line:#e5dad8;--green:#496b5b;--amber:#fff2c8;
+      --shadow:0 18px 55px rgba(68,42,45,.10);--radius:22px;--max:1180px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.55}
+    img{display:block;max-width:100%}a{color:inherit}.container{width:min(var(--max),calc(100% - 40px));margin:auto}.serif{font-family:"Playfair Display",Georgia,serif}
+    .mvp-strip{background:var(--ink);color:#fff;text-align:center;font-size:.73rem;letter-spacing:.13em;text-transform:uppercase;padding:9px 16px}
+    .mvp-strip b{color:#e8b8b5}.nav{height:76px;background:rgba(251,248,243,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;display:flex;align-items:center}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{width:102px;height:auto}.nav-links{display:flex;align-items:center;gap:27px;font-size:.86rem}.nav-links a{text-decoration:none;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border-radius:999px;border:1px solid var(--ink);font-weight:700;text-decoration:none;cursor:pointer;transition:.2s;background:transparent;color:var(--ink);font-family:inherit}
+    .btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--ink);color:#fff;box-shadow:0 10px 25px rgba(32,26,27,.18)}.btn-light{border-color:#fff;color:#fff}.btn-small{min-height:42px;padding:9px 18px;font-size:.83rem}
+    .hero{padding:74px 0 64px}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}.hero-grid>*{min-width:0}.eyebrow{font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:17px}.hero h1{font:700 clamp(2.7rem,5vw,5.15rem)/.98 "Playfair Display",Georgia,serif;letter-spacing:-.045em;margin:0 0 23px;overflow-wrap:anywhere}.hero h1 em{color:var(--rose-dark)}
+    .lead{font-size:1.12rem;color:var(--muted);max-width:650px;margin:0 0 28px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.microproof{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:.8rem}.microproof span:before{content:"✓";color:var(--green);font-weight:700;margin-right:7px}
+    .hero-media{position:relative}.hero-photo{aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:190px 190px 24px 24px;box-shadow:var(--shadow)}.media-note{position:absolute;right:-20px;bottom:30px;width:235px;background:#fff;padding:15px 17px;border-left:4px solid var(--rose-dark);box-shadow:var(--shadow);font-size:.75rem}.media-note b{display:block;font-size:.82rem;margin-bottom:3px}
+    .proofbar{background:#fff;border-block:1px solid var(--line)}.proofbar-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:22px 0}.proof-item{padding:0 24px;border-right:1px solid var(--line)}.proof-item:first-child{padding-left:0}.proof-item:last-child{border:0}.proof-item b{display:block;font-family:"Playfair Display";font-size:1.17rem}.proof-item span{font-size:.78rem;color:var(--muted)}
+    section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section-head.center{text-align:center;margin-inline:auto}.section-head h2{font:700 clamp(2.1rem,4vw,3.75rem)/1.05 "Playfair Display";letter-spacing:-.03em;margin:0 0 16px}.section-head p{color:var(--muted);font-size:1.05rem;margin:0}.pain{background:var(--ink);color:#fff}.pain .eyebrow,.pain .section-head p{color:#d8b0ad}.pain-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:end}.pain-card{background:#302829;border:1px solid #4a3e40;padding:28px;border-radius:var(--radius)}.pain-card p{font:600 1.32rem/1.42 "Playfair Display";margin:0}.pain-list{display:grid;gap:11px}.pain-list div{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #4a3e40;color:#e6dede}.pain-list b{color:#e8b8b5}
+    .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.system-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}.system-card .n{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--blush);color:var(--rose-dark);font-weight:700;margin-bottom:35px}.system-card h3{font:700 1.45rem "Playfair Display";margin:0 0 10px}.system-card p{color:var(--muted);font-size:.92rem;margin:0}
+    .routes{background:var(--blush)}.route-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.route-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px;min-height:390px;display:flex;flex-direction:column}.route-card.recommended{border:2px solid var(--rose-dark)}.badge{position:absolute;right:22px;top:22px;background:var(--ink);color:#fff;padding:6px 10px;border-radius:999px;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em}.route-card h3{font:700 2rem "Playfair Display";margin:0 0 8px}.route-card>p{color:var(--muted);margin:0 0 22px}.route-card ul{list-style:none;padding:0;margin:0 0 26px}.route-card li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.91rem}.route-card li:before{content:"✓";color:var(--green);font-weight:700;margin-right:9px}.route-card .btn{margin-top:auto;align-self:flex-start}.decision-note{margin-top:22px;border:1px dashed var(--rose-dark);background:#fffaf7;border-radius:14px;padding:17px 20px;font-size:.86rem;color:var(--rose-dark)}
+    .collections-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.collection{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.collection img{width:100%;height:320px;object-fit:cover}.collection:nth-child(2) img{object-position:center 35%}.collection-body{padding:22px}.collection small{color:var(--rose-dark);font-weight:700;text-transform:uppercase;letter-spacing:.1em}.collection h3{font:700 1.55rem "Playfair Display";margin:8px 0}.collection p{color:var(--muted);font-size:.88rem;margin:0 0 16px}.collection .pending{font-size:.72rem;padding:9px 10px;background:var(--amber);border-radius:8px;color:#5c4a18}.collections-foot{text-align:center;color:var(--muted);max-width:770px;margin:26px auto 0;font-size:.86rem}
+    .visual-story{background:#fff}.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}.story-collage{display:grid;grid-template-columns:1fr 1fr;gap:12px}.story-collage img{width:100%;height:270px;object-fit:cover;border-radius:18px}.story-collage .wide{grid-column:1/-1;height:230px;object-position:center 58%}.story-copy h2{font:700 clamp(2.2rem,4vw,3.7rem)/1.06 "Playfair Display";margin:0 0 20px}.story-copy ol{padding:0;margin:25px 0;list-style:none;counter-reset:steps}.story-copy li{counter-increment:steps;display:grid;grid-template-columns:36px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--muted)}.story-copy li:before{content:counter(steps);width:30px;height:30px;display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:50%;font-size:.72rem;font-weight:700}.capture{font-size:.77rem;background:var(--blush);border-left:4px solid var(--rose-dark);padding:13px 15px}
+    .production{background:#efeae3}.production-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.production-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}.production-card .placeholder{height:230px;display:grid;place-items:center;text-align:center;padding:26px;background-color:#f7f4ef;background-image:linear-gradient(45deg,#eee8e0 25%,transparent 25%,transparent 75%,#eee8e0 75%),linear-gradient(45deg,#eee8e0 25%,transparent 25%,transparent 75%,#eee8e0 75%);background-size:28px 28px;background-position:0 0,14px 14px}.camera{font-size:2rem}.production-body{padding:20px}.production-body h3{font:700 1.25rem "Playfair Display";margin:0 0 8px}.production-body p{font-size:.83rem;color:var(--muted);margin:0 0 11px}.specs{font-size:.7rem;font-weight:700;color:var(--rose-dark);text-transform:uppercase;letter-spacing:.05em}.production-card.real img{height:230px;width:100%;object-fit:cover}.tag-real{display:inline-block;background:#e3f0e9;color:#315846;border-radius:999px;padding:5px 8px;font-size:.65rem;font-weight:700;margin-bottom:8px}
+    .proof-section{background:var(--ink);color:#fff}.proof-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}.proof-layout img{height:570px;width:100%;object-fit:cover;border-radius:var(--radius)}.proof-copy h2{font:700 clamp(2.1rem,4vw,3.65rem)/1.05 "Playfair Display";margin:0 0 18px}.proof-copy>p{color:#cfc3c4}.proof-placeholder{border:1px dashed #9d8588;padding:20px;margin-top:20px;border-radius:14px;background:#2f2829}.proof-placeholder b{color:#e8b8b5}.proof-placeholder p{font-size:.8rem;color:#d7cbcc;margin:6px 0 0}
+    .faq{background:#fff}.faq-list{max-width:820px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:20px 4px}.faq summary{cursor:pointer;font-weight:700;list-style:none}.faq summary:after{content:"+";float:right;color:var(--rose-dark);font-size:1.4rem}.faq details[open] summary:after{content:"−"}.faq details p{color:var(--muted);font-size:.9rem;max-width:700px}
+    .lead-form{background:var(--blush)}.form-wrap{background:#fff;border:1px solid var(--line);border-radius:28px;padding:42px;display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;box-shadow:var(--shadow)}.form-copy h2{font:700 2.5rem/1.08 "Playfair Display";margin:0 0 14px}.form-copy p{color:var(--muted)}.form-note{font-size:.75rem;border:1px dashed var(--rose-dark);padding:12px;border-radius:10px;margin-top:24px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.75rem;font-weight:700}.field input,.field select{height:48px;border:1px solid var(--line);border-radius:10px;padding:0 13px;font:inherit;background:#fff;color:var(--ink)}.field input:focus,.field select:focus{outline:2px solid #d7adad;border-color:transparent}.form-status{font-size:.8rem;color:var(--green);min-height:22px;margin-top:10px}.footer{padding:40px 0 105px;background:#171314;color:#b9adae}.footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}.footer img{filter:brightness(0) invert(1);width:95px}.footer p{font-size:.75rem;margin:0;text-align:right}.mobile-cta{display:none}
+    @media(max-width:900px){.nav-links a:not(.btn){display:none}.hero{padding-top:42px}.hero-grid,.pain-grid,.story-grid,.proof-layout,.form-wrap{grid-template-columns:1fr}.hero-grid{gap:38px}.hero-copy{order:1}.hero-media{order:2}.hero-photo{width:100%;max-height:630px}.media-note{right:10px}.proofbar-grid,.system-grid,.collections-grid,.production-grid{grid-template-columns:1fr 1fr}.proof-item:nth-child(2){border:0}.proof-item{margin:8px 0}.proof-layout img{height:500px}.form-wrap{padding:30px}}
+    @media(max-width:620px){.container{width:min(calc(100% - 28px),var(--max))}.mvp-strip{font-size:.6rem}.nav{height:66px}.logo{width:88px}.nav .btn{display:none}.hero{padding:35px 0 45px}.hero h1{font-size:2.72rem;letter-spacing:-.04em}.lead{font-size:1rem}.hero-actions{display:grid}.hero-actions .btn{width:100%;min-width:0;white-space:normal;text-align:center;padding-inline:13px}.hero-photo{aspect-ratio:4/5;border-radius:120px 120px 18px 18px}.media-note{position:relative;right:auto;bottom:auto;width:100%;margin-top:-5px}.proofbar-grid{grid-template-columns:1fr 1fr}.proof-item{padding:4px 14px!important;border:0}.proof-item b{font-size:1rem}section{padding:68px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:2.35rem}.system-grid,.route-grid,.collections-grid,.production-grid{grid-template-columns:1fr}.route-card{min-height:0;padding:27px}.collection img{height:285px}.story-collage img{height:215px}.story-collage .wide{height:180px}.proof-layout img{height:390px}.form-wrap{padding:25px 20px;gap:28px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-inner{align-items:flex-start}.footer p{text-align:right}.mobile-cta{display:flex;position:fixed;z-index:30;left:12px;right:12px;bottom:10px;min-height:54px;background:var(--ink);color:#fff;border-radius:999px;align-items:center;justify-content:center;text-decoration:none;font-weight:700;box-shadow:0 12px 35px rgba(0,0,0,.28)}}
+  </style>
+</head>
+<body>
+  <div class="mvp-strip">MVP visual · textos, coleções, condições e integrações sujeitos à validação Hilst</div>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <img class="logo" src="assets/logo-hilst.png" alt="Hilst Joias">
+      <div class="nav-links"><a href="#como-funciona">Como funciona</a><a href="#colecoes">Coleções</a><a href="#conteudo">Conteúdo</a><a class="btn btn-primary btn-small" href="#contato">Falar com uma consultora</a></div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Exclusivo para revendedoras e lojistas</div>
+        <h1>Sua próxima coleção pode chegar <em>pronta para ganhar movimento.</em></h1>
+        <p class="lead">Joias legítimas em Prata 925, imagens profissionais e atendimento consultivo para você começar por um mix recomendado ou personalizar sua seleção.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#colecoes">Conhecer coleções recomendadas</a><a class="btn" href="#personalizar">Montar meu mix</a></div>
+        <div class="microproof"><span>Prata 925 legítima</span><span>Atendimento B2B</span><span>Imagens para divulgação</span></div>
+      </div>
+      <div class="hero-media">
+        <img class="hero-photo" src="assets/icp2-hero.jpg" alt="Modelo usando joias em Prata 925 Hilst">
+        <div class="media-note"><b>Foto do acervo · Prata 925</b>Boa para o MVP mobile. Produzir nova versão horizontal com respiro à esquerda para o desktop.</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="proofbar"><div class="container proofbar-grid">
+    <div class="proof-item"><b>Produto real</b><span>Joias em Prata 925</span></div><div class="proof-item"><b>Mix orientado</b><span>Menos decisões no primeiro pedido</span></div><div class="proof-item"><b>Opção flexível</b><span>Seleção adaptada ao seu público</span></div><div class="proof-item"><b>Conteúdo de apoio</b><span>Imagens profissionais por produto</span></div>
+  </div></div>
+
+  <section class="pain">
+    <div class="container pain-grid">
+      <div class="section-head"><div class="eyebrow">Para quem já vende</div><h2>Uma compra não termina quando a caixa chega.</h2><p>Para girar uma coleção, você também precisa saber o que apresentar, como divulgar e onde repor.</p></div>
+      <div class="pain-card"><p>“Eu não preciso apenas de peças bonitas. Preciso de um mix que faça sentido para minhas clientes e de material para colocar a coleção em movimento.”</p><div class="pain-list"><div><b>01</b><span>Escolha sem excesso de opções desconectadas.</span></div><div><b>02</b><span>Divulgação com o mesmo produto que será entregue.</span></div><div><b>03</b><span>Atendimento para adaptar e recompor o mix.</span></div></div></div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-head center"><div class="eyebrow">Coleções em Movimento</div><h2>Produto, comunicação e orientação no mesmo sistema.</h2><p>A proposta da LP não é vender peças soltas. É ajudar a lojista a transformar uma seleção de Prata 925 em uma coleção comunicável.</p></div>
+      <div class="system-grid">
+        <article class="system-card"><div class="n">01</div><h3>Mix com lógica</h3><p>Uma seleção inicial organizada por estilo, categoria ou intenção comercial — com composição a ser definida pela Hilst.</p></article>
+        <article class="system-card"><div class="n">02</div><h3>Imagem correspondente</h3><p>Fotos de produto, uso no corpo e arquivos identificados para facilitar a divulgação de cada peça.</p></article>
+        <article class="system-card"><div class="n">03</div><h3>Ajuste consultivo</h3><p>Uma consultora entende o público da revendedora e adapta o mix quando a coleção pronta não for a melhor escolha.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="routes" id="personalizar">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Duas rotas de compra</div><h2>Comece com direção. Personalize quando fizer sentido.</h2><p>Esta é a recomendação estratégica do MVP: não obrigar a cliente a escolher entre rigidez e excesso de opções.</p></div>
+      <div class="route-grid">
+        <article class="route-card recommended"><span class="badge">Rota recomendada</span><h3>Coleção pronta</h3><p>Para quem quer reduzir decisões e começar por uma seleção com narrativa e material de comunicação coerentes.</p><ul><li>Curadoria por proposta comercial</li><li>Apresentação mais clara na campanha</li><li>Escolha inicial mais rápida</li><li>Possibilidade de ajustes com a consultora</li></ul><a class="btn btn-primary" href="#colecoes">Ver propostas de coleção</a></article>
+        <article class="route-card"><h3>Mix personalizado</h3><p>Para quem já conhece o próprio público e prefere adaptar categorias, estilos e quantidade com atendimento humano.</p><ul><li>Briefing sobre perfil das clientes</li><li>Seleção assistida por consultora</li><li>Flexibilidade por categoria e estilo</li><li>Composição sujeita à disponibilidade</li></ul><a class="btn" href="#contato">Quero personalizar</a></article>
+      </div>
+      <div class="decision-note"><b>Decisão necessária da Hilst:</b> confirmar se as coleções recomendadas serão fixas, sazonais ou montadas a partir de regras de curadoria; definir composição, quantidade, faixa de investimento, disponibilidade e política de substituição.</div>
+    </div>
+  </section>
+
+  <section id="colecoes">
+    <div class="container">
+      <div class="section-head center"><div class="eyebrow">Arquitetura simulada</div><h2>Três maneiras de transformar variedade em escolha.</h2><p>Os nomes e agrupamentos abaixo são hipóteses de conversão para validação. As fotos usam peças prateadas do acervo, confirmadas como Prata 925.</p></div>
+      <div class="collections-grid">
+        <article class="collection"><img src="assets/icp2-product-argola.jpg" alt="Brincos em Prata 925"><div class="collection-body"><small>Proposta 01</small><h3>Essenciais de Giro</h3><p>Modelos versáteis e fáceis de combinar para sustentar uma seleção cotidiana.</p><div class="pending">A definir: SKUs, quantidade, investimento e reposição.</div></div></article>
+        <article class="collection"><img src="assets/icp2-rings.jpg" alt="Anéis em Prata 925"><div class="collection-body"><small>Proposta 02</small><h3>Delicadeza Contemporânea</h3><p>Peças de leitura leve, brilho pontual e composição delicada para comunicação feminina.</p><div class="pending">A definir: SKUs, quantidade, investimento e reposição.</div></div></article>
+        <article class="collection"><img src="assets/icp2-case.jpg" alt="Mix organizado de joias em Prata 925"><div class="collection-body"><small>Proposta 03</small><h3>Prata com Presença</h3><p>Um mix visualmente marcante para lojistas que buscam contraste e variedade percebida.</p><div class="pending">A definir: SKUs, quantidade, investimento e reposição.</div></div></article>
+      </div>
+      <p class="collections-foot"><b>Por que esta arquitetura tende a converter melhor?</b> Ela reduz a carga de decisão na entrada, cria anúncios mais específicos e mantém uma saída consultiva para quem não quer comprar um pacote fechado.</p>
+    </div>
+  </section>
+
+  <section class="visual-story" id="conteudo">
+    <div class="container story-grid">
+      <div class="story-collage"><img src="assets/icp2-product-macro.jpg" alt="Joia em Prata 925 em fundo neutro"><img src="assets/icp2-model-ear.jpg" alt="Joia em Prata 925 no corpo"><img class="wide" src="assets/bank-reference.jpg" alt="Simulação de banco de imagens Hilst"></div>
+      <div class="story-copy"><div class="eyebrow">Conteúdo que acompanha o produto</div><h2>A lojista precisa enxergar a ligação entre peça, SKU e imagem.</h2><p>O mesmo item aparece como produto, no corpo e dentro do banco de imagens. Isso torna o benefício concreto e reduz a sensação de “conteúdo genérico”.</p><ol><li>Foto limpa para catálogo e stories.</li><li>Uso no corpo para demonstrar proporção.</li><li>Arquivo identificado para download e divulgação.</li></ol><div class="capture"><b>Captação necessária:</b> substituir a tela simulada por gravação real do banco, buscando um SKU e baixando seu arquivo. Desktop 1920 × 1080; mobile 1080 × 1920; 12–18 s.</div></div>
+    </div>
+  </section>
+
+  <section class="production">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">O que falta produzir</div><h2>O produto já aparece. A operação ainda precisa ser provada.</h2><p>Estes blocos entram como marcadores no MVP e devem ser substituídos antes da publicação.</p></div>
+      <div class="production-grid">
+        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Foto + vídeo do estoque real</b></div></div><div class="production-body"><h3>Disponibilidade organizada</h3><p>Plano aberto do estoque, categorias e aproximação em etiquetas/SKUs, sem dados de clientes.</p><div class="specs">Desktop 3:2 · Mobile 4:5 · vídeo 16:9 e 9:16</div></div></article>
+        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Sequência de separação</b></div></div><div class="production-body"><h3>Picking e conferência</h3><p>Mãos separando o pedido, conferindo peça por peça e organizando a composição.</p><div class="specs">6–8 fotos · vídeo contínuo de 15–25 s</div></div></article>
+        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Embalagem e expedição</b></div></div><div class="production-body"><h3>Pedido pronto para sair</h3><p>Proteção, nota, fechamento, etiqueta e rastreio — sem exibir informações pessoais.</p><div class="specs">Desktop 1600 × 1067 · Mobile 1080 × 1350</div></div></article>
+        <article class="production-card real"><img src="assets/icp2-lifestyle-ear.jpg" alt="Joias em Prata 925 no corpo"><div class="production-body"><span class="tag-real">Acervo confirmado</span><h3>Uso no corpo</h3><p>Aproveitar no MVP. Produzir variações horizontais com respiro para texto e coleção coerente.</p><div class="specs">Nova foto: 1920 × 1200 + 1080 × 1350</div></div></article>
+        <article class="production-card real"><img src="assets/icp2-product-set.jpg" alt="Conjunto de joias em Prata 925"><div class="production-body"><span class="tag-real">Acervo confirmado</span><h3>Composição de produto</h3><p>Aproveitar como referência. Repetir a estética com os SKUs que formarão cada coleção aprovada.</p><div class="specs">Produto: 1600 × 1600 + card 1080 × 1350</div></div></article>
+        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Consultora em atendimento</b></div></div><div class="production-body"><h3>Personalização visível</h3><p>Consultora explicando como adapta categorias, estilo e quantidade ao perfil da lojista.</p><div class="specs">Retrato 4:5 · fala vertical de 20–30 s</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof-section">
+    <div class="container proof-layout">
+      <img src="assets/icp2-lifestyle-ring.jpg" alt="Anel em Prata 925 em uso">
+      <div class="proof-copy"><div class="eyebrow">Confiança antes do contato</div><h2>Beleza atrai. Evidência ajuda a decidir.</h2><p>A versão final deve combinar acabamento da peça, funcionamento do suporte e prova social de quem já compra no atacado.</p><div class="proof-placeholder"><b>Conteúdo obrigatório antes de publicar</b><p>2–3 depoimentos autorizados de revendedoras/lojistas, com nome, cidade, tipo de negócio e resultado qualitativo verificável. Evitar promessas de faturamento.</p></div><div class="proof-placeholder"><b>Políticas a confirmar</b><p>Pedido mínimo, prazo de envio, garantia, troca, reposição, formas de pagamento e acesso ao banco de imagens.</p></div></div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <div class="section-head center"><div class="eyebrow">Perguntas que destravam o contato</div><h2>O essencial antes de montar o pedido.</h2></div>
+      <div class="faq-list">
+        <details><summary>As peças são realmente Prata 925?</summary><p>Sim. As peças prateadas apresentadas neste MVP pertencem à linha de joias legítimas em Prata 925 da Hilst. As semijoias da marca recebem banho de ouro 18K e não fazem parte desta página.</p></details>
+        <details><summary>Preciso comprar uma coleção fechada?</summary><p>A recomendação é oferecer coleções como ponto de partida e permitir ajustes ou um mix personalizado com consultora. O modelo comercial final ainda precisa ser aprovado pela Hilst.</p></details>
+        <details><summary>As imagens podem ser usadas na divulgação?</summary><p>A versão final deverá explicar quais arquivos acompanham cada SKU, como acessar o banco e quais são as condições de uso.</p></details>
+        <details><summary>Qual é o pedido mínimo e o prazo?</summary><p>Valores, disponibilidade, prazo, garantia e política de reposição precisam ser confirmados pela Hilst antes da publicação.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="lead-form" id="contato">
+    <div class="container form-wrap">
+      <div class="form-copy"><div class="eyebrow">Próximo passo</div><h2>Vamos entender qual rota combina com o seu negócio.</h2><p>O formulário qualifica o atendimento sem exigir que a lojista decida tudo sozinha.</p><div class="form-note"><b>MVP:</b> integrar o envio ao WhatsApp/CRM oficial somente após confirmar número, responsável, horários e tratamento dos leads.</div></div>
+      <form id="leadForm"><div class="fields">
+        <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" required placeholder="Como podemos chamar você?"></div>
+        <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" required placeholder="(00) 00000-0000"></div>
+        <div class="field"><label for="negocio">Como você vende?</label><select id="negocio" name="negocio"><option>Loja física</option><option>Loja online</option><option>Revenda pelas redes sociais</option><option>Mais de um canal</option></select></div>
+        <div class="field"><label for="rota">Qual rota interessa mais?</label><select id="rota" name="rota"><option>Coleção recomendada</option><option>Mix personalizado</option><option>Quero orientação</option></select></div>
+        <div class="field full"><label for="instagram">Instagram ou nome da loja</label><input id="instagram" name="instagram" placeholder="@sualoja"></div>
+        <div class="field full"><button class="btn btn-primary" type="submit">Quero falar com uma consultora</button><div class="form-status" id="formStatus" aria-live="polite"></div></div>
+      </div></form>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container footer-inner"><img src="assets/logo-hilst.png" alt="Hilst Joias"><p>MVP da LP ICP 2 · Uso estratégico interno<br>Prata 925 no atacado · Conteúdo sujeito à validação</p></div></footer>
+  <a class="mobile-cta" href="#contato">Falar com uma consultora</a>
+  <script>
+    document.getElementById('leadForm').addEventListener('submit',function(event){event.preventDefault();document.getElementById('formStatus').textContent='MVP visual: a integração ao canal oficial será configurada após a validação da Hilst.';});
+  </script>
+</body>
+</html>
