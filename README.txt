@@ -15,4 +15,6 @@ Antes da publicação, a Hilst precisa definir:
 - condições de uso e acesso ao banco de imagens;
 - pedido mínimo, prazo, garantia, trocas e canal oficial de atendimento.
 
-O formulário é visual e ainda não envia dados. A integração ao WhatsApp/CRM será configurada depois da validação comercial.
+O formulário está preparado para usar o mesmo endpoint de roteamento do Kit Liberdade. Ele registra oferta, LP de origem, UTMs, IDs de campanha e dados de correspondência antes de direcionar o lead para uma das duas consultoras.
+
+Para ativar, preencher a constante ROUTING_ENDPOINT no index.html com a URL /exec do Google Apps Script central e testar um lead completo.
