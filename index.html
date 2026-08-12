@@ -3,174 +3,671 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="MVP da landing page B2B Coleções em Movimento — Hilst Joias em Prata 925.">
-  <title>Coleções em Movimento | Hilst Joias</title>
+  <meta name="description" content="Curadoria Hilst de joias em Prata 925 no atacado para lojistas e revendedoras.">
+  <meta name="theme-color" content="#201a1b">
+  <title>Curadoria Hilst | Prata 925 no atacado</title>
+  <link rel="icon" href="assets/logo-hilst.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --ink:#201a1b;--muted:#71696b;--rose:#c99595;--rose-dark:#7e5056;--blush:#f4e9e7;
-      --cream:#fbf8f3;--paper:#fff;--line:#e5dad8;--green:#496b5b;--amber:#fff2c8;
-      --shadow:0 18px 55px rgba(68,42,45,.10);--radius:22px;--max:1180px;
+      --ink:#201a1b;
+      --ink-soft:#302829;
+      --muted:#71696b;
+      --rose:#c99595;
+      --rose-dark:#7e5056;
+      --rose-deep:#5d393e;
+      --blush:#f4e9e7;
+      --cream:#fbf8f3;
+      --paper:#ffffff;
+      --line:#e5dad8;
+      --green:#496b5b;
+      --shadow:0 24px 70px rgba(68,42,45,.12);
+      --shadow-soft:0 12px 36px rgba(68,42,45,.08);
+      --radius:24px;
+      --max:1180px;
     }
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.55}
-    img{display:block;max-width:100%}a{color:inherit}.container{width:min(var(--max),calc(100% - 40px));margin:auto}.serif{font-family:"Playfair Display",Georgia,serif}
-    .mvp-strip{background:var(--ink);color:#fff;text-align:center;font-size:.73rem;letter-spacing:.13em;text-transform:uppercase;padding:9px 16px}
-    .mvp-strip b{color:#e8b8b5}.nav{height:76px;background:rgba(251,248,243,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;display:flex;align-items:center}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{width:102px;height:auto}.nav-links{display:flex;align-items:center;gap:27px;font-size:.86rem}.nav-links a{text-decoration:none;color:var(--muted)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border-radius:999px;border:1px solid var(--ink);font-weight:700;text-decoration:none;cursor:pointer;transition:.2s;background:transparent;color:var(--ink);font-family:inherit}
-    .btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--ink);color:#fff;box-shadow:0 10px 25px rgba(32,26,27,.18)}.btn-light{border-color:#fff;color:#fff}.btn-small{min-height:42px;padding:9px 18px;font-size:.83rem}
-    .hero{padding:74px 0 64px}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}.hero-grid>*{min-width:0}.eyebrow{font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:17px}.hero h1{font:700 clamp(2.7rem,5vw,5.15rem)/.98 "Playfair Display",Georgia,serif;letter-spacing:-.045em;margin:0 0 23px;overflow-wrap:anywhere}.hero h1 em{color:var(--rose-dark)}
-    .lead{font-size:1.12rem;color:var(--muted);max-width:650px;margin:0 0 28px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.microproof{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:.8rem}.microproof span:before{content:"✓";color:var(--green);font-weight:700;margin-right:7px}
-    .hero-media{position:relative}.hero-photo{aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:190px 190px 24px 24px;box-shadow:var(--shadow)}.media-note{position:absolute;right:-20px;bottom:30px;width:235px;background:#fff;padding:15px 17px;border-left:4px solid var(--rose-dark);box-shadow:var(--shadow);font-size:.75rem}.media-note b{display:block;font-size:.82rem;margin-bottom:3px}
-    .proofbar{background:#fff;border-block:1px solid var(--line)}.proofbar-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:22px 0}.proof-item{padding:0 24px;border-right:1px solid var(--line)}.proof-item:first-child{padding-left:0}.proof-item:last-child{border:0}.proof-item b{display:block;font-family:"Playfair Display";font-size:1.17rem}.proof-item span{font-size:.78rem;color:var(--muted)}
-    section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section-head.center{text-align:center;margin-inline:auto}.section-head h2{font:700 clamp(2.1rem,4vw,3.75rem)/1.05 "Playfair Display";letter-spacing:-.03em;margin:0 0 16px}.section-head p{color:var(--muted);font-size:1.05rem;margin:0}.pain{background:var(--ink);color:#fff}.pain .eyebrow,.pain .section-head p{color:#d8b0ad}.pain-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:end}.pain-card{background:#302829;border:1px solid #4a3e40;padding:28px;border-radius:var(--radius)}.pain-card p{font:600 1.32rem/1.42 "Playfair Display";margin:0}.pain-list{display:grid;gap:11px}.pain-list div{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #4a3e40;color:#e6dede}.pain-list b{color:#e8b8b5}
-    .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.system-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}.system-card .n{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--blush);color:var(--rose-dark);font-weight:700;margin-bottom:35px}.system-card h3{font:700 1.45rem "Playfair Display";margin:0 0 10px}.system-card p{color:var(--muted);font-size:.92rem;margin:0}
-    .routes{background:var(--blush)}.route-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.route-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px;min-height:390px;display:flex;flex-direction:column}.route-card.recommended{border:2px solid var(--rose-dark)}.badge{position:absolute;right:22px;top:22px;background:var(--ink);color:#fff;padding:6px 10px;border-radius:999px;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em}.route-card h3{font:700 2rem "Playfair Display";margin:0 0 8px}.route-card>p{color:var(--muted);margin:0 0 22px}.route-card ul{list-style:none;padding:0;margin:0 0 26px}.route-card li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.91rem}.route-card li:before{content:"✓";color:var(--green);font-weight:700;margin-right:9px}.route-card .btn{margin-top:auto;align-self:flex-start}.decision-note{margin-top:22px;border:1px dashed var(--rose-dark);background:#fffaf7;border-radius:14px;padding:17px 20px;font-size:.86rem;color:var(--rose-dark)}
-    .collections-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.collection{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.collection img{width:100%;height:320px;object-fit:cover}.collection:nth-child(2) img{object-position:center 35%}.collection-body{padding:22px}.collection small{color:var(--rose-dark);font-weight:700;text-transform:uppercase;letter-spacing:.1em}.collection h3{font:700 1.55rem "Playfair Display";margin:8px 0}.collection p{color:var(--muted);font-size:.88rem;margin:0 0 16px}.collection .pending{font-size:.72rem;padding:9px 10px;background:var(--amber);border-radius:8px;color:#5c4a18}.collections-foot{text-align:center;color:var(--muted);max-width:770px;margin:26px auto 0;font-size:.86rem}
-    .visual-story{background:#fff}.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}.story-collage{display:grid;grid-template-columns:1fr 1fr;gap:12px}.story-collage img{width:100%;height:270px;object-fit:cover;border-radius:18px}.story-collage .wide{grid-column:1/-1;height:230px;object-position:center 58%}.story-copy h2{font:700 clamp(2.2rem,4vw,3.7rem)/1.06 "Playfair Display";margin:0 0 20px}.story-copy ol{padding:0;margin:25px 0;list-style:none;counter-reset:steps}.story-copy li{counter-increment:steps;display:grid;grid-template-columns:36px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--muted)}.story-copy li:before{content:counter(steps);width:30px;height:30px;display:grid;place-items:center;background:var(--ink);color:#fff;border-radius:50%;font-size:.72rem;font-weight:700}.capture{font-size:.77rem;background:var(--blush);border-left:4px solid var(--rose-dark);padding:13px 15px}
-    .production{background:#efeae3}.production-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.production-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}.production-card .placeholder{height:230px;display:grid;place-items:center;text-align:center;padding:26px;background-color:#f7f4ef;background-image:linear-gradient(45deg,#eee8e0 25%,transparent 25%,transparent 75%,#eee8e0 75%),linear-gradient(45deg,#eee8e0 25%,transparent 25%,transparent 75%,#eee8e0 75%);background-size:28px 28px;background-position:0 0,14px 14px}.camera{font-size:2rem}.production-body{padding:20px}.production-body h3{font:700 1.25rem "Playfair Display";margin:0 0 8px}.production-body p{font-size:.83rem;color:var(--muted);margin:0 0 11px}.specs{font-size:.7rem;font-weight:700;color:var(--rose-dark);text-transform:uppercase;letter-spacing:.05em}.production-card.real img{height:230px;width:100%;object-fit:cover}.tag-real{display:inline-block;background:#e3f0e9;color:#315846;border-radius:999px;padding:5px 8px;font-size:.65rem;font-weight:700;margin-bottom:8px}
-    .proof-section{background:var(--ink);color:#fff}.proof-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}.proof-layout img{height:570px;width:100%;object-fit:cover;border-radius:var(--radius)}.proof-copy h2{font:700 clamp(2.1rem,4vw,3.65rem)/1.05 "Playfair Display";margin:0 0 18px}.proof-copy>p{color:#cfc3c4}.proof-placeholder{border:1px dashed #9d8588;padding:20px;margin-top:20px;border-radius:14px;background:#2f2829}.proof-placeholder b{color:#e8b8b5}.proof-placeholder p{font-size:.8rem;color:#d7cbcc;margin:6px 0 0}
-    .faq{background:#fff}.faq-list{max-width:820px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:20px 4px}.faq summary{cursor:pointer;font-weight:700;list-style:none}.faq summary:after{content:"+";float:right;color:var(--rose-dark);font-size:1.4rem}.faq details[open] summary:after{content:"−"}.faq details p{color:var(--muted);font-size:.9rem;max-width:700px}
-    .lead-form{background:var(--blush)}.form-wrap{background:#fff;border:1px solid var(--line);border-radius:28px;padding:42px;display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;box-shadow:var(--shadow)}.form-copy h2{font:700 2.5rem/1.08 "Playfair Display";margin:0 0 14px}.form-copy p{color:var(--muted)}.form-note{font-size:.75rem;border:1px dashed var(--rose-dark);padding:12px;border-radius:10px;margin-top:24px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.75rem;font-weight:700}.field input,.field select{height:48px;border:1px solid var(--line);border-radius:10px;padding:0 13px;font:inherit;background:#fff;color:var(--ink)}.field input:focus,.field select:focus{outline:2px solid #d7adad;border-color:transparent}.form-status{font-size:.8rem;color:var(--green);min-height:22px;margin-top:10px}.privacy-note{font-size:.68rem;color:var(--muted);line-height:1.45;margin:9px 0 0}.footer{padding:40px 0 105px;background:#171314;color:#b9adae}.footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}.footer img{filter:brightness(0) invert(1);width:95px}.footer p{font-size:.75rem;margin:0;text-align:right}.mobile-cta{display:none}
-    @media(max-width:900px){.nav-links a:not(.btn){display:none}.hero{padding-top:42px}.hero-grid,.pain-grid,.story-grid,.proof-layout,.form-wrap{grid-template-columns:1fr}.hero-grid{gap:38px}.hero-copy{order:1}.hero-media{order:2}.hero-photo{width:100%;max-height:630px}.media-note{right:10px}.proofbar-grid,.system-grid,.collections-grid,.production-grid{grid-template-columns:1fr 1fr}.proof-item:nth-child(2){border:0}.proof-item{margin:8px 0}.proof-layout img{height:500px}.form-wrap{padding:30px}}
-    @media(max-width:620px){.container{width:min(calc(100% - 28px),var(--max))}.mvp-strip{font-size:.6rem}.nav{height:66px}.logo{width:88px}.nav .btn{display:none}.hero{padding:35px 0 45px}.hero h1{font-size:2.72rem;letter-spacing:-.04em}.lead{font-size:1rem}.hero-actions{display:grid}.hero-actions .btn{width:100%;min-width:0;white-space:normal;text-align:center;padding-inline:13px}.hero-photo{aspect-ratio:4/5;border-radius:120px 120px 18px 18px}.media-note{position:relative;right:auto;bottom:auto;width:100%;margin-top:-5px}.proofbar-grid{grid-template-columns:1fr 1fr}.proof-item{padding:4px 14px!important;border:0}.proof-item b{font-size:1rem}section{padding:68px 0}.section-head{margin-bottom:30px}.section-head h2{font-size:2.35rem}.system-grid,.route-grid,.collections-grid,.production-grid{grid-template-columns:1fr}.route-card{min-height:0;padding:27px}.route-card .badge{position:static;align-self:flex-start;margin:0 0 16px}.collection img{height:285px}.story-collage img{height:215px}.story-collage .wide{height:180px}.proof-layout img{height:390px}.form-wrap{padding:25px 20px;gap:28px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-inner{align-items:flex-start}.footer p{text-align:right}.mobile-cta{display:flex;position:fixed;z-index:30;left:12px;right:12px;bottom:10px;min-height:54px;background:var(--ink);color:#fff;border-radius:999px;align-items:center;justify-content:center;text-decoration:none;font-weight:700;box-shadow:0 12px 35px rgba(0,0,0,.28)}}
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button,input,select{font:inherit}
+    button{color:inherit}
+    .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .serif{font-family:"Playfair Display",Georgia,serif}
+    .eyebrow{margin:0 0 16px;color:var(--rose-dark);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    .section-head{max-width:770px;margin:0 0 42px}
+    .section-head.center{text-align:center;margin-inline:auto}
+    .section-head h2{margin:0 0 16px;font:700 clamp(2.15rem,4vw,3.8rem)/1.04 "Playfair Display",Georgia,serif;letter-spacing:-.035em}
+    .section-head p{margin:0;color:var(--muted);font-size:1.04rem}
+    section{padding:96px 0}
+
+    .topline{background:var(--ink);color:#f5eceb;text-align:center;padding:9px 18px;font-size:.69rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+    .nav{height:82px;position:sticky;top:0;z-index:40;display:flex;align-items:center;background:rgba(251,248,243,.96);border-bottom:1px solid rgba(126,80,86,.12);box-shadow:0 10px 35px rgba(68,42,45,.04);backdrop-filter:blur(15px)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .brand{display:inline-flex;align-items:center;text-decoration:none}
+    .logo{width:132px;height:auto;filter:brightness(0) saturate(100%) sepia(16%) saturate(556%) hue-rotate(295deg) brightness(74%) contrast(82%)}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links>a:not(.btn){color:var(--muted);font-size:.84rem;text-decoration:none}
+    .nav-links>a:not(.btn):hover{color:var(--ink)}
+
+    .btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 23px;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);font-weight:700;text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:focus-visible{outline:3px solid rgba(126,80,86,.28);outline-offset:3px}
+    .btn-primary{background:var(--ink);color:#fff;box-shadow:0 11px 28px rgba(32,26,27,.18)}
+    .btn-primary:hover{box-shadow:0 15px 34px rgba(32,26,27,.24)}
+    .btn-small{min-height:42px;padding:9px 18px;font-size:.82rem}
+    .btn-soft{border-color:var(--rose-dark);color:var(--rose-dark);background:#fff}
+
+    .hero{padding:72px 0 68px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:60px;align-items:center}
+    .hero-grid>*{min-width:0}
+    .hero h1{max-width:690px;margin:0 0 24px;font:700 clamp(3rem,5.25vw,5.55rem)/.96 "Playfair Display",Georgia,serif;letter-spacing:-.052em;text-wrap:balance}
+    .hero h1 em{color:var(--rose-dark);font-weight:600}
+    .hero .lead{max-width:650px;margin:0 0 30px;color:var(--muted);font-size:1.1rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-proof{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:25px;color:var(--muted);font-size:.79rem}
+    .hero-proof span{display:flex;align-items:center;gap:7px}
+    .hero-proof span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+    .hero-media{position:relative;isolation:isolate}
+    .hero-media::before{content:"";position:absolute;z-index:-1;width:65%;aspect-ratio:1;border-radius:50%;top:-8%;right:-12%;background:var(--blush)}
+    .hero-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 33%;border-radius:230px 230px 26px 26px;box-shadow:var(--shadow)}
+    .hero-card{position:absolute;left:-32px;bottom:35px;width:255px;padding:18px 19px;background:rgba(255,255,255,.96);border:1px solid rgba(126,80,86,.13);border-radius:18px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+    .hero-card small{display:block;margin-bottom:7px;color:var(--rose-dark);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .hero-card b{display:block;font:700 1.13rem/1.2 "Playfair Display",Georgia,serif}
+    .hero-card p{margin:7px 0 0;color:var(--muted);font-size:.74rem}
+
+    .proofbar{background:#fff;border-block:1px solid var(--line)}
+    .proofbar-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:24px 0}
+    .proof-item{padding:0 26px;border-right:1px solid var(--line)}
+    .proof-item:first-child{padding-left:0}
+    .proof-item:last-child{padding-right:0;border:0}
+    .proof-item b{display:block;margin-bottom:3px;font:700 1.1rem "Playfair Display",Georgia,serif}
+    .proof-item span{display:block;color:var(--muted);font-size:.76rem}
+
+    .awareness{background:var(--ink);color:#fff;overflow:hidden}
+    .awareness-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+    .awareness .eyebrow{color:#ddb4b1}
+    .awareness h2{margin:0;font:700 clamp(2.35rem,4.6vw,4.35rem)/1.02 "Playfair Display",Georgia,serif;letter-spacing:-.04em}
+    .awareness h2 em{color:#e4bbb8;font-weight:600}
+    .awareness-copy>p{margin:22px 0 0;color:#d7cdce;font-size:1.02rem}
+    .awareness-list{display:grid;gap:12px}
+    .awareness-item{display:grid;grid-template-columns:42px 1fr;gap:15px;padding:20px;border:1px solid #493d3f;border-radius:17px;background:var(--ink-soft)}
+    .awareness-item .n{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:#45383a;color:#e6bcb9;font-size:.72rem;font-weight:700}
+    .awareness-item b{display:block;margin-bottom:3px;font-family:"Playfair Display",Georgia,serif;font-size:1.08rem}
+    .awareness-item p{margin:0;color:#cfc2c3;font-size:.82rem}
+
+    .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .process-card{position:relative;min-height:290px;padding:30px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
+    .process-card .n{width:44px;height:44px;display:grid;place-items:center;margin-bottom:58px;border-radius:50%;background:var(--blush);color:var(--rose-dark);font-size:.75rem;font-weight:700}
+    .process-card h3{margin:0 0 10px;font:700 1.48rem "Playfair Display",Georgia,serif}
+    .process-card p{margin:0;color:var(--muted);font-size:.9rem}
+
+    .directions{background:#f0e4e2}
+    .directions-intro{display:flex;justify-content:space-between;gap:38px;align-items:end;margin-bottom:42px}
+    .directions-intro .section-head{margin:0}
+    .directions-note{max-width:340px;margin:0;color:var(--rose-deep);font-size:.78rem}
+    .direction-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .direction-card{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow-soft)}
+    .direction-gallery{display:grid;grid-template-columns:1.3fr .7fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:7px;height:510px;padding:7px;background:#fff;overflow:hidden}
+    .direction-gallery img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover}
+    .direction-gallery .main{grid-row:1/-1;border-radius:21px 7px 7px 21px}
+    .direction-gallery img:nth-child(2){border-radius:7px 21px 7px 7px}
+    .direction-gallery img:nth-child(3){border-radius:7px 7px 21px 7px}
+    .direction-card.camadas .direction-gallery img{object-position:center}
+    .direction-card.presenca .direction-gallery .main{object-position:50% 25%}
+    .direction-body{position:relative;z-index:1;padding:28px;background:#fff}
+    .direction-kicker{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:9px;color:var(--rose-dark);font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
+    .direction-kicker span:last-child{padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);letter-spacing:.05em}
+    .direction-body h3{margin:0 0 10px;font:700 2rem "Playfair Display",Georgia,serif}
+    .direction-body p{margin:0 0 20px;color:var(--muted);font-size:.9rem}
+    .direction-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+    .direction-tags span{padding:7px 10px;border-radius:999px;background:var(--cream);color:var(--rose-deep);font-size:.7rem;font-weight:600}
+
+    .investment{background:#fff}
+    .investment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+    .investment-card{position:relative;display:flex;flex-direction:column;min-height:405px;padding:30px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius)}
+    .investment-card.featured{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-10px);box-shadow:var(--shadow)}
+    .investment-card .label{min-height:24px;margin-bottom:24px;color:var(--rose-dark);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .investment-card.featured .label{color:#e4bbb8}
+    .investment-card .price{margin:0 0 4px;font:700 2.45rem "Playfair Display",Georgia,serif;letter-spacing:-.03em}
+    .investment-card .name{margin-bottom:16px;font-size:.88rem;font-weight:700}
+    .investment-card p{margin:0 0 20px;color:var(--muted);font-size:.86rem}
+    .investment-card.featured p{color:#d0c4c5}
+    .investment-card ul{margin:0 0 26px;padding:0;list-style:none}
+    .investment-card li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.8rem}
+    .investment-card.featured li{border-color:#453a3c}
+    .investment-card .btn{width:100%;margin-top:auto}
+    .investment-card.featured .btn{background:#fff;color:var(--ink);border-color:#fff}
+    .investment-foot{max-width:810px;margin:26px auto 0;padding:16px 20px;border:1px dashed var(--rose);border-radius:14px;color:var(--muted);text-align:center;font-size:.78rem}
+
+    .tangible{background:var(--cream)}
+    .tangible-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:62px;align-items:center}
+    .tangible-copy h2{margin:0 0 18px;font:700 clamp(2.3rem,4.5vw,4rem)/1.03 "Playfair Display",Georgia,serif;letter-spacing:-.04em}
+    .tangible-copy>p{margin:0;color:var(--muted)}
+    .deliver-list{display:grid;gap:11px;margin-top:28px}
+    .deliver-item{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+    .deliver-item .check{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--blush);color:var(--rose-dark);font-size:.72rem;font-weight:700}
+    .deliver-item b{display:block;font-size:.88rem}
+    .deliver-item span{display:block;margin-top:2px;color:var(--muted);font-size:.76rem}
+    .proposal{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}
+    .proposal-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;background:var(--ink);color:#fff}
+    .proposal-head img{width:116px;height:auto;filter:brightness(0) invert(1);opacity:.96}
+    .proposal-head span{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#dbc2c0}
+    .proposal-body{padding:28px}
+    .proposal-body>small{color:var(--rose-dark);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .proposal-body h3{margin:8px 0 22px;font:700 1.8rem "Playfair Display",Georgia,serif}
+    .proposal-data{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+    .proposal-data div{padding:15px;background:var(--cream);border-radius:13px}
+    .proposal-data small{display:block;margin-bottom:4px;color:var(--muted);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em}
+    .proposal-data b{font-size:.82rem}
+    .allocation{padding:18px;border:1px solid var(--line);border-radius:16px}
+    .allocation-title{display:flex;justify-content:space-between;gap:16px;margin-bottom:14px;font-size:.75rem;font-weight:700}
+    .bar{display:flex;height:10px;overflow:hidden;border-radius:999px;background:#eee}
+    .bar span:nth-child(1){width:50%;background:var(--rose-deep)}
+    .bar span:nth-child(2){width:30%;background:var(--rose)}
+    .bar span:nth-child(3){width:20%;background:#dbc6b2}
+    .legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px;color:var(--muted);font-size:.65rem}
+    .proposal-note{margin:15px 0 0;color:var(--muted);font-size:.67rem}
+
+    .trust{background:var(--ink);color:#fff}
+    .trust-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
+    .trust-photo{width:100%;height:610px;object-fit:cover;object-position:center 28%;border-radius:28px}
+    .trust-copy .eyebrow{color:#ddb4b1}
+    .trust-copy h2{margin:0 0 18px;font:700 clamp(2.35rem,4.3vw,4rem)/1.02 "Playfair Display",Georgia,serif;letter-spacing:-.04em}
+    .trust-copy>p{margin:0;color:#d2c5c6}
+    .trust-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+    .trust-fact{padding:18px;border:1px solid #493d3f;border-radius:16px;background:var(--ink-soft)}
+    .trust-fact b{display:block;margin-bottom:5px;font:700 1.02rem "Playfair Display",Georgia,serif;color:#f4e8e7}
+    .trust-fact span{display:block;color:#c8babb;font-size:.73rem}
+
+    .faq{background:#fff}
+    .faq-list{max-width:850px;margin-inline:auto}
+    .faq details{padding:21px 3px;border-bottom:1px solid var(--line)}
+    .faq summary{cursor:pointer;list-style:none;font-weight:700}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";float:right;color:var(--rose-dark);font-size:1.35rem;font-weight:500}
+    .faq details[open] summary::after{content:"−"}
+    .faq details p{max-width:730px;margin:13px 0 0;color:var(--muted);font-size:.88rem}
+
+    .lead-form{background:var(--blush)}
+    .form-wrap{display:grid;grid-template-columns:.84fr 1.16fr;gap:52px;padding:48px;background:#fff;border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}
+    .form-copy h2{margin:0 0 15px;font:700 clamp(2.3rem,4vw,3.5rem)/1.04 "Playfair Display",Georgia,serif;letter-spacing:-.035em}
+    .form-copy>p{margin:0;color:var(--muted)}
+    .form-summary{display:grid;gap:10px;margin-top:28px}
+    .form-summary div{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.78rem}
+    .form-summary div::before{content:"";width:8px;height:8px;flex:0 0 auto;border-radius:50%;background:var(--green)}
+    .form-stage{margin-top:27px;padding:14px 16px;border-left:3px solid var(--rose-dark);background:var(--cream);color:var(--muted);font-size:.73rem}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.72rem;font-weight:700}
+    .field input,.field select{width:100%;height:50px;padding:0 13px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink)}
+    .field input:focus,.field select:focus{outline:2px solid rgba(126,80,86,.27);border-color:var(--rose-dark)}
+    .field .btn{width:100%;margin-top:3px}
+    .privacy-note{margin:8px 0 0;color:var(--muted);font-size:.66rem;line-height:1.45}
+    .form-status{min-height:23px;margin-top:9px;color:var(--green);font-size:.76rem}
+
+    .footer{position:relative;padding:74px 0 112px;background:#090909;color:#fff;overflow:hidden}
+    .footer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 20%,rgba(126,80,86,.14),transparent 26%),radial-gradient(circle at 82% 68%,rgba(201,149,149,.08),transparent 26%);pointer-events:none}
+    .footer-inner{position:relative;display:grid;grid-template-columns:.85fr 1.3fr .85fr;gap:54px;align-items:center}
+    .footer-brand{display:flex;align-items:center}
+    .footer-wordmark{width:168px;height:auto;filter:brightness(0) invert(1);opacity:.97}
+    .footer-center{text-align:center}
+    .footer-center .footer-line{display:block;width:42px;height:1px;margin:0 auto 17px;background:var(--rose)}
+    .footer-center .footer-message{max-width:440px;margin:0 auto;color:#fff;font:600 1.28rem/1.35 "Playfair Display",Georgia,serif}
+    .footer-center .footer-copy{margin:24px 0 0;color:#817a7b;font-size:.7rem}
+    .footer-review{text-align:center}
+    .google-link{display:inline-flex;flex-direction:column;align-items:center;color:#fff;text-decoration:none}
+    .google-g{width:38px;height:38px;object-fit:contain;margin-bottom:8px}
+    .stars{color:#e3bd28;font-size:1.12rem;letter-spacing:.04em;line-height:1}
+    .review-title{margin-top:9px;font-size:.78rem;font-weight:700}
+    .review-count{margin-top:2px;color:#a8a1a2;font-size:.69rem}
+    .social-links{display:flex;justify-content:center;gap:11px;margin-top:17px}
+    .social-link{width:35px;height:35px;display:grid;place-items:center;border:1px solid #3b3637;border-radius:10px;background:#fff;transition:.2s}
+    .social-link:hover{transform:translateY(-2px);border-color:var(--rose)}
+    .social-link img{width:18px;height:18px;filter:none}
+    .mobile-cta{display:none}
+
+    @media(max-width:980px){
+      .hero-grid,.awareness-grid,.tangible-grid,.trust-grid,.form-wrap{grid-template-columns:1fr}
+      .hero-grid{gap:44px}
+      .hero-copy{order:1}
+      .hero-media{order:2;max-width:680px;margin-inline:auto}
+      .hero-card{left:16px}
+      .awareness-grid,.tangible-grid,.trust-grid{gap:42px}
+      .process-grid{grid-template-columns:repeat(3,1fr)}
+      .direction-gallery{height:440px}
+      .trust-photo{height:540px}
+      .form-wrap{padding:38px}
+    }
+
+    @media(max-width:760px){
+      .container{width:min(var(--max),calc(100% - 30px))}
+      html{scroll-padding-top:76px}
+      section{padding:72px 0}
+      .topline{font-size:.57rem;letter-spacing:.09em;padding-inline:10px}
+      .nav{height:70px}
+      .logo{width:112px}
+      .nav-links>a:not(.btn){display:none}
+      .nav .btn{min-height:40px;padding:8px 14px;font-size:.72rem}
+      .hero{padding:42px 0 52px}
+      .hero h1{font-size:clamp(2.65rem,13vw,4.1rem);letter-spacing:-.048em}
+      .hero .lead{font-size:.98rem}
+      .hero-actions{display:grid}
+      .hero-actions .btn{width:100%}
+      .hero-photo{border-radius:150px 150px 20px 20px}
+      .hero-card{position:relative;left:auto;bottom:auto;width:calc(100% - 18px);margin:-45px auto 0}
+      .proofbar-grid{grid-template-columns:1fr 1fr;gap:0}
+      .proof-item{padding:13px 14px!important;border:0}
+      .proof-item:nth-child(odd){border-right:1px solid var(--line)}
+      .proof-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .proof-item b{font-size:.96rem}
+      .awareness h2{font-size:2.65rem}
+      .process-grid,.direction-grid,.investment-grid{grid-template-columns:1fr}
+      .process-card{min-height:0;padding:25px}
+      .process-card .n{margin-bottom:36px}
+      .directions-intro{display:block}
+      .directions-note{max-width:none;margin-top:18px}
+      .direction-gallery{height:470px}
+      .investment-card{min-height:0}
+      .investment-card.featured{transform:none}
+      .proposal-data,.trust-facts{grid-template-columns:1fr}
+      .trust-photo{height:430px}
+      .form-wrap{padding:28px 22px;gap:32px}
+      .fields{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .footer{padding:64px 0 104px}
+      .footer-inner{grid-template-columns:1fr;gap:38px;text-align:center}
+      .footer-brand{justify-content:center}
+      .footer-wordmark{width:152px}
+      .footer-center .footer-copy{margin-top:20px}
+      .mobile-cta{position:fixed;z-index:50;left:12px;right:12px;bottom:10px;display:flex;min-height:54px;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff;box-shadow:0 14px 38px rgba(0,0,0,.3);font-size:.9rem;font-weight:700;text-align:center;text-decoration:none}
+    }
+
+    @media(max-width:480px){
+      .nav .btn{display:none}
+      .section-head h2{font-size:2.3rem}
+      .hero-card{width:100%}
+      .direction-gallery{height:390px;grid-template-columns:1.18fr .82fr}
+      .direction-body{padding:23px}
+      .direction-body h3{font-size:1.75rem}
+      .investment-card{padding:25px}
+      .proposal-body{padding:22px}
+      .proposal-head{padding:18px 20px}
+      .trust-photo{height:380px}
+      .footer-inner{gap:34px}
+      .footer-center .footer-message{font-size:1.15rem}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important}
+    }
   </style>
 </head>
 <body>
-  <div class="mvp-strip">MVP visual · textos, coleções, condições e integrações sujeitos à validação Hilst</div>
-  <nav class="nav">
+  <div class="topline">Atacado em Prata 925 · Atendimento consultivo para lojistas e revendedoras</div>
+
+  <nav class="nav" aria-label="Navegação principal">
     <div class="container nav-inner">
-      <img class="logo" src="assets/logo-hilst.png" alt="Hilst Joias">
-      <div class="nav-links"><a href="#como-funciona">Como funciona</a><a href="#colecoes">Coleções</a><a href="#conteudo">Conteúdo</a><a class="btn btn-primary btn-small" href="#contato">Falar com uma consultora</a></div>
+      <a class="brand" href="#inicio" aria-label="Hilst Joias — início"><img class="logo" src="assets/hilst-wordmark.png" alt="Hilst Joias"></a>
+      <div class="nav-links">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#direcoes">Direções</a>
+        <a href="#investimento">Investimento</a>
+        <a class="btn btn-primary btn-small" href="#contato">Solicitar curadoria</a>
+      </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">Exclusivo para revendedoras e lojistas</div>
-        <h1>Sua próxima coleção pode chegar <em>pronta para ganhar movimento.</em></h1>
-        <p class="lead">Joias legítimas em Prata 925, imagens profissionais e atendimento consultivo para você começar por um mix recomendado ou personalizar sua seleção.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#colecoes">Conhecer coleções recomendadas</a><a class="btn" href="#personalizar">Montar meu mix</a></div>
-        <div class="microproof"><span>Prata 925 legítima</span><span>Atendimento B2B</span><span>Imagens para divulgação</span></div>
+  <main>
+    <header class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Curadoria Hilst para sua loja</p>
+          <h1>Uma seleção de Prata 925 com <em>direção.</em></h1>
+          <p class="lead">Escolha o universo visual e a faixa de investimento. Uma consultora Hilst apresenta uma curadoria alinhada ao momento da sua operação — sem precisar começar pela coleção completa.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contato">Solicitar minha proposta</a>
+            <a class="btn btn-soft" href="#direcoes">Conhecer as direções</a>
+          </div>
+          <div class="hero-proof" aria-label="Diferenciais">
+            <span>Joias legítimas em Prata 925</span>
+            <span>Seleção orientada</span>
+            <span>Atendimento para atacado</span>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img class="hero-photo" src="assets/icp2-hero.jpg" alt="Modelo usando composição de joias em Prata 925 Hilst" fetchpriority="high">
+          <div class="hero-card">
+            <small>Seu ponto de partida</small>
+            <b>Estilo, investimento e perfil da loja.</b>
+            <p>A consultora transforma essas escolhas em uma proposta de seleção.</p>
+          </div>
+        </div>
       </div>
-      <div class="hero-media">
-        <img class="hero-photo" src="assets/icp2-hero.jpg" alt="Modelo usando joias em Prata 925 Hilst">
-        <div class="media-note"><b>Foto do acervo · Prata 925</b>Boa para o MVP mobile. Produzir nova versão horizontal com respiro à esquerda para o desktop.</div>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="proofbar"><div class="container proofbar-grid">
-    <div class="proof-item"><b>Produto real</b><span>Joias em Prata 925</span></div><div class="proof-item"><b>Mix orientado</b><span>Menos decisões no primeiro pedido</span></div><div class="proof-item"><b>Opção flexível</b><span>Seleção adaptada ao seu público</span></div><div class="proof-item"><b>Conteúdo de apoio</b><span>Imagens profissionais por produto</span></div>
-  </div></div>
-
-  <section class="pain">
-    <div class="container pain-grid">
-      <div class="section-head"><div class="eyebrow">Para quem já vende</div><h2>Uma compra não termina quando a caixa chega.</h2><p>Para girar uma coleção, você também precisa saber o que apresentar, como divulgar e onde repor.</p></div>
-      <div class="pain-card"><p>“Eu não preciso apenas de peças bonitas. Preciso de um mix que faça sentido para minhas clientes e de material para colocar a coleção em movimento.”</p><div class="pain-list"><div><b>01</b><span>Escolha sem excesso de opções desconectadas.</span></div><div><b>02</b><span>Divulgação com o mesmo produto que será entregue.</span></div><div><b>03</b><span>Atendimento para adaptar e recompor o mix.</span></div></div></div>
-    </div>
-  </section>
-
-  <section id="como-funciona">
-    <div class="container">
-      <div class="section-head center"><div class="eyebrow">Coleções em Movimento</div><h2>Produto, comunicação e orientação no mesmo sistema.</h2><p>A proposta da LP não é vender peças soltas. É ajudar a lojista a transformar uma seleção de Prata 925 em uma coleção comunicável.</p></div>
-      <div class="system-grid">
-        <article class="system-card"><div class="n">01</div><h3>Mix com lógica</h3><p>Uma seleção inicial organizada por estilo, categoria ou intenção comercial — com composição a ser definida pela Hilst.</p></article>
-        <article class="system-card"><div class="n">02</div><h3>Imagem correspondente</h3><p>Fotos de produto, uso no corpo e arquivos identificados para facilitar a divulgação de cada peça.</p></article>
-        <article class="system-card"><div class="n">03</div><h3>Ajuste consultivo</h3><p>Uma consultora entende o público da revendedora e adapta o mix quando a coleção pronta não for a melhor escolha.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="routes" id="personalizar">
-    <div class="container">
-      <div class="section-head"><div class="eyebrow">Duas rotas de compra</div><h2>Comece com direção. Personalize quando fizer sentido.</h2><p>Esta é a recomendação estratégica do MVP: não obrigar a cliente a escolher entre rigidez e excesso de opções.</p></div>
-      <div class="route-grid">
-        <article class="route-card recommended"><span class="badge">Rota recomendada</span><h3>Coleção pronta</h3><p>Para quem quer reduzir decisões e começar por uma seleção com narrativa e material de comunicação coerentes.</p><ul><li>Curadoria por proposta comercial</li><li>Apresentação mais clara na campanha</li><li>Escolha inicial mais rápida</li><li>Possibilidade de ajustes com a consultora</li></ul><a class="btn btn-primary" href="#colecoes">Ver propostas de coleção</a></article>
-        <article class="route-card"><h3>Mix personalizado</h3><p>Para quem já conhece o próprio público e prefere adaptar categorias, estilos e quantidade com atendimento humano.</p><ul><li>Briefing sobre perfil das clientes</li><li>Seleção assistida por consultora</li><li>Flexibilidade por categoria e estilo</li><li>Composição sujeita à disponibilidade</li></ul><a class="btn" href="#contato">Quero personalizar</a></article>
-      </div>
-      <div class="decision-note"><b>Decisão necessária da Hilst:</b> confirmar se as coleções recomendadas serão fixas, sazonais ou montadas a partir de regras de curadoria; definir composição, quantidade, faixa de investimento, disponibilidade e política de substituição.</div>
-    </div>
-  </section>
-
-  <section id="colecoes">
-    <div class="container">
-      <div class="section-head center"><div class="eyebrow">Arquitetura simulada</div><h2>Três maneiras de transformar variedade em escolha.</h2><p>Os nomes e agrupamentos abaixo são hipóteses de conversão para validação. As fotos usam peças prateadas do acervo, confirmadas como Prata 925.</p></div>
-      <div class="collections-grid">
-        <article class="collection"><img src="assets/icp2-product-argola.jpg" alt="Brincos em Prata 925"><div class="collection-body"><small>Proposta 01</small><h3>Essenciais de Giro</h3><p>Modelos versáteis e fáceis de combinar para sustentar uma seleção cotidiana.</p><div class="pending">A definir: SKUs, quantidade, investimento e reposição.</div></div></article>
-        <article class="collection"><img src="assets/icp2-rings.jpg" alt="Anéis em Prata 925"><div class="collection-body"><small>Proposta 02</small><h3>Delicadeza Contemporânea</h3><p>Peças de leitura leve, brilho pontual e composição delicada para comunicação feminina.</p><div class="pending">A definir: SKUs, quantidade, investimento e reposição.</div></div></article>
-        <article class="collection"><img src="assets/icp2-case.jpg" alt="Mix organizado de joias em Prata 925"><div class="collection-body"><small>Proposta 03</small><h3>Prata com Presença</h3><p>Um mix visualmente marcante para lojistas que buscam contraste e variedade percebida.</p><div class="pending">A definir: SKUs, quantidade, investimento e reposição.</div></div></article>
-      </div>
-      <p class="collections-foot"><b>Por que esta arquitetura tende a converter melhor?</b> Ela reduz a carga de decisão na entrada, cria anúncios mais específicos e mantém uma saída consultiva para quem não quer comprar um pacote fechado.</p>
-    </div>
-  </section>
-
-  <section class="visual-story" id="conteudo">
-    <div class="container story-grid">
-      <div class="story-collage"><img src="assets/icp2-product-macro.jpg" alt="Joia em Prata 925 em fundo neutro"><img src="assets/icp2-model-ear.jpg" alt="Joia em Prata 925 no corpo"><img class="wide" src="assets/bank-reference.jpg" alt="Simulação de banco de imagens Hilst"></div>
-      <div class="story-copy"><div class="eyebrow">Conteúdo que acompanha o produto</div><h2>A lojista precisa enxergar a ligação entre peça, SKU e imagem.</h2><p>O mesmo item aparece como produto, no corpo e dentro do banco de imagens. Isso torna o benefício concreto e reduz a sensação de “conteúdo genérico”.</p><ol><li>Foto limpa para catálogo e stories.</li><li>Uso no corpo para demonstrar proporção.</li><li>Arquivo identificado para download e divulgação.</li></ol><div class="capture"><b>Captação necessária:</b> substituir a tela simulada por gravação real do banco, buscando um SKU e baixando seu arquivo. Desktop 1920 × 1080; mobile 1080 × 1920; 12–18 s.</div></div>
-    </div>
-  </section>
-
-  <section class="production">
-    <div class="container">
-      <div class="section-head"><div class="eyebrow">O que falta produzir</div><h2>O produto já aparece. A operação ainda precisa ser provada.</h2><p>Estes blocos entram como marcadores no MVP e devem ser substituídos antes da publicação.</p></div>
-      <div class="production-grid">
-        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Foto + vídeo do estoque real</b></div></div><div class="production-body"><h3>Disponibilidade organizada</h3><p>Plano aberto do estoque, categorias e aproximação em etiquetas/SKUs, sem dados de clientes.</p><div class="specs">Desktop 3:2 · Mobile 4:5 · vídeo 16:9 e 9:16</div></div></article>
-        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Sequência de separação</b></div></div><div class="production-body"><h3>Picking e conferência</h3><p>Mãos separando o pedido, conferindo peça por peça e organizando a composição.</p><div class="specs">6–8 fotos · vídeo contínuo de 15–25 s</div></div></article>
-        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Embalagem e expedição</b></div></div><div class="production-body"><h3>Pedido pronto para sair</h3><p>Proteção, nota, fechamento, etiqueta e rastreio — sem exibir informações pessoais.</p><div class="specs">Desktop 1600 × 1067 · Mobile 1080 × 1350</div></div></article>
-        <article class="production-card real"><img src="assets/icp2-lifestyle-ear.jpg" alt="Joias em Prata 925 no corpo"><div class="production-body"><span class="tag-real">Acervo confirmado</span><h3>Uso no corpo</h3><p>Aproveitar no MVP. Produzir variações horizontais com respiro para texto e coleção coerente.</p><div class="specs">Nova foto: 1920 × 1200 + 1080 × 1350</div></div></article>
-        <article class="production-card real"><img src="assets/icp2-product-set.jpg" alt="Conjunto de joias em Prata 925"><div class="production-body"><span class="tag-real">Acervo confirmado</span><h3>Composição de produto</h3><p>Aproveitar como referência. Repetir a estética com os SKUs que formarão cada coleção aprovada.</p><div class="specs">Produto: 1600 × 1600 + card 1080 × 1350</div></div></article>
-        <article class="production-card"><div class="placeholder"><div><div class="camera">⌁</div><b>Consultora em atendimento</b></div></div><div class="production-body"><h3>Personalização visível</h3><p>Consultora explicando como adapta categorias, estilo e quantidade ao perfil da lojista.</p><div class="specs">Retrato 4:5 · fala vertical de 20–30 s</div></div></article>
+    <div class="proofbar" aria-label="Características da curadoria">
+      <div class="container proofbar-grid">
+        <div class="proof-item"><b>Prata 925</b><span>Material legítimo e identificado</span></div>
+        <div class="proof-item"><b>Faixa definida</b><span>Clareza antes de montar a proposta</span></div>
+        <div class="proof-item"><b>Escolha assistida</b><span>Menos excesso de opções</span></div>
+        <div class="proof-item"><b>Mix adaptável</b><span>Sujeito ao perfil e ao estoque</span></div>
       </div>
     </div>
-  </section>
 
-  <section class="proof-section">
-    <div class="container proof-layout">
-      <img src="assets/icp2-lifestyle-ring.jpg" alt="Anel em Prata 925 em uso">
-      <div class="proof-copy"><div class="eyebrow">Confiança antes do contato</div><h2>Beleza atrai. Evidência ajuda a decidir.</h2><p>A versão final deve combinar acabamento da peça, funcionamento do suporte e prova social de quem já compra no atacado.</p><div class="proof-placeholder"><b>Conteúdo obrigatório antes de publicar</b><p>2–3 depoimentos autorizados de revendedoras/lojistas, com nome, cidade, tipo de negócio e resultado qualitativo verificável. Evitar promessas de faturamento.</p></div><div class="proof-placeholder"><b>Políticas a confirmar</b><p>Pedido mínimo, prazo de envio, garantia, troca, reposição, formas de pagamento e acesso ao banco de imagens.</p></div></div>
-    </div>
-  </section>
+    <section class="awareness">
+      <div class="container awareness-grid">
+        <div class="awareness-copy">
+          <p class="eyebrow">Mais clareza para escolher</p>
+          <h2>Comprar no atacado não precisa começar por um <em>catálogo infinito.</em></h2>
+          <p>Uma seleção coerente nasce de poucas decisões bem orientadas. Por isso, a Hilst parte da identidade desejada, da realidade da operação e do investimento disponível.</p>
+        </div>
+        <div class="awareness-list">
+          <article class="awareness-item">
+            <span class="n">01</span>
+            <div><b>Defina uma direção visual</b><p>Escolha o universo que mais se aproxima do estilo das suas clientes.</p></div>
+          </article>
+          <article class="awareness-item">
+            <span class="n">02</span>
+            <div><b>Informe sua faixa de investimento</b><p>A proposta começa dentro de um intervalo que faça sentido para a sua operação.</p></div>
+          </article>
+          <article class="awareness-item">
+            <span class="n">03</span>
+            <div><b>Ajuste com uma consultora</b><p>Categorias e peças são refinadas conforme preferência e disponibilidade.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section class="faq">
-    <div class="container">
-      <div class="section-head center"><div class="eyebrow">Perguntas que destravam o contato</div><h2>O essencial antes de montar o pedido.</h2></div>
-      <div class="faq-list">
-        <details><summary>As peças são realmente Prata 925?</summary><p>Sim. As peças prateadas apresentadas neste MVP pertencem à linha de joias legítimas em Prata 925 da Hilst. As semijoias da marca recebem banho de ouro 18K e não fazem parte desta página.</p></details>
-        <details><summary>Preciso comprar uma coleção fechada?</summary><p>A recomendação é oferecer coleções como ponto de partida e permitir ajustes ou um mix personalizado com consultora. O modelo comercial final ainda precisa ser aprovado pela Hilst.</p></details>
-        <details><summary>As imagens podem ser usadas na divulgação?</summary><p>A versão final deverá explicar quais arquivos acompanham cada SKU, como acessar o banco e quais são as condições de uso.</p></details>
-        <details><summary>Qual é o pedido mínimo e o prazo?</summary><p>Valores, disponibilidade, prazo, garantia e política de reposição precisam ser confirmados pela Hilst antes da publicação.</p></details>
+    <section id="como-funciona">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Como funciona</p>
+          <h2>Da intenção à proposta em três passos.</h2>
+          <p>A primeira conversa já começa com contexto. Assim, a consultora entende o que procurar antes de apresentar as opções.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="n">01</div>
+            <h3>Conte sobre sua operação</h3>
+            <p>Informe como vende, onde atende e em que momento do negócio você está.</p>
+          </article>
+          <article class="process-card">
+            <div class="n">02</div>
+            <h3>Escolha uma direção</h3>
+            <p>Use os universos visuais como ponto de partida para a curadoria.</p>
+          </article>
+          <article class="process-card">
+            <div class="n">03</div>
+            <h3>Receba uma proposta</h3>
+            <p>A consultora apresenta uma seleção e conduz os ajustes antes do fechamento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="directions" id="direcoes">
+      <div class="container">
+        <div class="directions-intro">
+          <div class="section-head">
+            <p class="eyebrow">Direções de estilo</p>
+            <h2>Qual universo conversa mais com a sua cliente?</h2>
+            <p>As imagens ajudam a identificar uma linguagem visual. Elas não representam um pacote fechado nem obrigam a compra de todos os looks.</p>
+          </div>
+          <p class="directions-note"><b>Você não precisa decidir sozinha.</b><br>Também é possível combinar as duas direções ou pedir uma recomendação à consultora.</p>
+        </div>
+
+        <div class="direction-grid">
+          <article class="direction-card camadas">
+            <div class="direction-gallery">
+              <img class="main" src="assets/direcao-camadas-01.jpg" alt="Composição de colares em Prata 925 da direção Camadas e Luminosidade">
+              <img src="assets/direcao-camadas-02.jpg" alt="Colares com brilho em Prata 925">
+              <img src="assets/direcao-camadas-03.jpg" alt="Colares delicados em Prata 925">
+            </div>
+            <div class="direction-body">
+              <div class="direction-kicker"><span>Direção 01</span><span>Nome provisório</span></div>
+              <h3>Camadas &amp; Luminosidade</h3>
+              <p>Composições coordenadas, brilho e combinações que constroem uma apresentação elegante.</p>
+              <div class="direction-tags"><span>Colares</span><span>Camadas</span><span>Brilho</span><span>Versatilidade</span></div>
+              <button class="btn btn-soft select-direction" type="button" data-direction="Camadas & Luminosidade">Quero esta direção</button>
+            </div>
+          </article>
+
+          <article class="direction-card presenca">
+            <div class="direction-gallery">
+              <img class="main" src="assets/direcao-presenca-01.jpg" alt="Brincos em Prata 925 da direção Cor e Presença">
+              <img src="assets/direcao-presenca-02.jpg" alt="Colares em Prata 925 com pontos de cor">
+              <img src="assets/direcao-presenca-03.jpg" alt="Composição de brincos em Prata 925">
+            </div>
+            <div class="direction-body">
+              <div class="direction-kicker"><span>Direção 02</span><span>Nome provisório</span></div>
+              <h3>Cor &amp; Presença</h3>
+              <p>Pontos de cor, composições expressivas e peças que ganham protagonismo no styling.</p>
+              <div class="direction-tags"><span>Cor</span><span>Ear mix</span><span>Anéis</span><span>Personalidade</span></div>
+              <button class="btn btn-soft select-direction" type="button" data-direction="Cor & Presença">Quero esta direção</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="investment" id="investimento">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Faixa de investimento</p>
+          <h2>Comece pelo nível que faz sentido agora.</h2>
+          <p>Estas faixas orientam a conversa e a amplitude da proposta. A composição final será confirmada com a consultora.</p>
+        </div>
+
+        <div class="investment-grid">
+          <article class="investment-card">
+            <div class="label">Seleção essencial</div>
+            <p class="price">R$ 1.500</p>
+            <div class="name">Ponto de partida</div>
+            <p>Para quem busca uma seleção mais concentrada dentro de uma direção visual.</p>
+            <ul><li>Curadoria dentro da faixa</li><li>Definição de categorias prioritárias</li><li>Ajustes com a consultora</li></ul>
+            <button class="btn select-investment" type="button" data-investment="R$ 1.500">Tenho interesse</button>
+          </article>
+
+          <article class="investment-card featured">
+            <div class="label">Faixa recomendada</div>
+            <p class="price">R$ 3.000</p>
+            <div class="name">Seleção de vitrine</div>
+            <p>Para quem deseja ampliar a variedade percebida sem partir para a coleção completa.</p>
+            <ul><li>Maior amplitude de categorias</li><li>Direção visual mais desenvolvida</li><li>Possibilidade de personalização</li></ul>
+            <button class="btn select-investment" type="button" data-investment="R$ 3.000">Quero esta faixa</button>
+          </article>
+
+          <article class="investment-card">
+            <div class="label">Seleção expansão</div>
+            <p class="price">R$ 6.000+</p>
+            <div class="name">Mais variedade e profundidade</div>
+            <p>Para operações que procuram uma seleção mais ampla e maior presença de coleção.</p>
+            <ul><li>Maior cobertura de categorias</li><li>Mais possibilidades de composição</li><li>Curadoria adaptada à operação</li></ul>
+            <button class="btn select-investment" type="button" data-investment="R$ 6.000 ou mais">Tenho interesse</button>
+          </article>
+        </div>
+
+        <p class="investment-foot">Os valores representam faixas de intenção, não kits com composição fechada. Outras seleções podem ser avaliadas pela consultora, respeitando o pedido mínimo de R$ 600 e a disponibilidade de estoque.</p>
+      </div>
+    </section>
+
+    <section class="tangible">
+      <div class="container tangible-grid">
+        <div class="tangible-copy">
+          <p class="eyebrow">O que acontece depois</p>
+          <h2>Uma conversa com direção — não um envio genérico de catálogo.</h2>
+          <p>As respostas do formulário organizam o início do atendimento e ajudam a consultora a preparar uma proposta mais relevante.</p>
+          <div class="deliver-list">
+            <div class="deliver-item"><span class="check">01</span><div><b>Leitura do seu perfil</b><span>Momento do negócio, canal de venda e intenção de compra.</span></div></div>
+            <div class="deliver-item"><span class="check">02</span><div><b>Proposta de seleção</b><span>Direção visual, categorias e faixa de investimento escolhida.</span></div></div>
+            <div class="deliver-item"><span class="check">03</span><div><b>Ajustes antes do fechamento</b><span>Refinamento de preferências conforme disponibilidade.</span></div></div>
+          </div>
+        </div>
+
+        <div class="proposal" aria-label="Exemplo ilustrativo de uma proposta de curadoria">
+          <div class="proposal-head"><img src="assets/hilst-wordmark.png" alt="Hilst Joias"><span>Exemplo ilustrativo</span></div>
+          <div class="proposal-body">
+            <small>Resumo da curadoria</small>
+            <h3>Uma proposta começa pelas decisões certas.</h3>
+            <div class="proposal-data">
+              <div><small>Direção visual</small><b>Camadas &amp; Luminosidade</b></div>
+              <div><small>Investimento</small><b>Faixa de R$ 3.000</b></div>
+              <div><small>Operação</small><b>Loja física + Instagram</b></div>
+              <div><small>Prioridades</small><b>Colares, brincos e anéis</b></div>
+            </div>
+            <div class="allocation">
+              <div class="allocation-title"><span>Distribuição ilustrativa</span><span>A confirmar</span></div>
+              <div class="bar" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="legend"><span>Peças-base</span><span>Protagonistas</span><span>Complementos</span></div>
+            </div>
+            <p class="proposal-note">A seleção real será montada pela consultora após validar preferências, preços e disponibilidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="container trust-grid">
+        <img class="trust-photo" src="assets/icp2-product-macro.jpg" alt="Detalhe de acabamento de joia em Prata 925 Hilst" loading="lazy">
+        <div class="trust-copy">
+          <p class="eyebrow">Confiança antes da escolha</p>
+          <h2>Beleza para apresentar. Segurança para decidir.</h2>
+          <p>A proposta combina o universo visual das joias com informações objetivas para conduzir uma compra no atacado.</p>
+          <div class="trust-facts">
+            <div class="trust-fact"><b>Prata 925 legítima</b><span>O acervo apresentado nesta página é composto por joias em Prata 925.</span></div>
+            <div class="trust-fact"><b>Garantia permanente</b><span>Contra defeitos de fabricação relacionados ao metal, conforme regras da Hilst.</span></div>
+            <div class="trust-fact"><b>Atendimento humano</b><span>Uma consultora acompanha a seleção e os ajustes comerciais.</span></div>
+            <div class="trust-fact"><b>Composição transparente</b><span>Peças e valores são confirmados antes do fechamento do pedido.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Dúvidas frequentes</p>
+          <h2>Antes de solicitar sua curadoria.</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>Preciso comprar a coleção completa?</summary><p>Não. As imagens apresentam direções visuais. A consultora monta uma seleção compatível com sua faixa de investimento e com as peças disponíveis.</p></details>
+          <details><summary>Os valores de R$ 1.500, R$ 3.000 e R$ 6.000 são kits fechados?</summary><p>Nesta primeira etapa, eles representam faixas de intenção para orientar a proposta. A composição e o valor final são confirmados antes do pedido.</p></details>
+          <details><summary>Posso escolher peças e categorias?</summary><p>Sim. Você poderá informar suas prioridades e ajustar a seleção com a consultora, respeitando disponibilidade, tamanhos e condições comerciais.</p></details>
+          <details><summary>Qual é o pedido mínimo?</summary><p>O pedido mínimo no atacado é de R$ 600. Para esta proposta de curadoria, as faixas recomendadas começam em R$ 1.500.</p></details>
+          <details><summary>Vou receber um catálogo?</summary><p>O atendimento começa pela sua operação, direção visual e investimento. A consultora poderá apresentar as peças relevantes durante a montagem da proposta, evitando um envio genérico e sem contexto.</p></details>
+          <details><summary>Como funcionam frete, prazo e pagamento?</summary><p>As condições aplicáveis ao pedido serão informadas pela consultora antes do fechamento.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-form" id="contato">
+      <div class="container form-wrap">
+        <div class="form-copy">
+          <p class="eyebrow">Solicite sua proposta</p>
+          <h2>Conte o essencial. A curadoria começa daqui.</h2>
+          <p>Suas respostas ajudam a consultora a entender a direção e a faixa mais compatíveis com a sua operação.</p>
+          <div class="form-summary">
+            <div>Atendimento exclusivo para atacado</div>
+            <div>Contato feito por uma consultora Hilst</div>
+            <div>Seleção sujeita à disponibilidade</div>
+          </div>
+          <div class="form-stage"><b>Próxima etapa do projeto:</b> conectar este formulário ao rateio das consultoras, à planilha comercial e ao rastreamento.</div>
+        </div>
+
+        <form id="leadForm">
+          <div class="fields">
+            <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required></div>
+            <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
+            <div class="field"><label for="cidade">Cidade e estado</label><input id="cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Goiânia, GO" required></div>
+            <div class="field"><label for="operacao">Como você vende?</label><select id="operacao" name="operacao" required><option value="">Selecione</option><option>Loja física</option><option>Loja física + online</option><option>E-commerce ou Instagram</option><option>Revenda por atendimento</option><option>Estou começando</option></select></div>
+            <div class="field"><label for="direcao">Direção visual</label><select id="direcao" name="direcao" required><option value="">Selecione</option><option>Camadas &amp; Luminosidade</option><option>Cor &amp; Presença</option><option>Quero combinar as duas</option><option>Prefiro uma recomendação</option></select></div>
+            <div class="field"><label for="faixa-investimento">Faixa de investimento</label><select id="faixa-investimento" name="investimento" required><option value="">Selecione</option><option>Até R$ 1.500</option><option>R$ 1.500</option><option>R$ 3.000</option><option>R$ 6.000 ou mais</option><option>Ainda não defini</option></select></div>
+            <div class="field"><label for="categorias">Categorias prioritárias</label><select id="categorias" name="categorias" required><option value="">Selecione</option><option>Colares</option><option>Brincos</option><option>Anéis</option><option>Pulseiras</option><option>Quero variedade</option><option>Preciso de orientação</option></select></div>
+            <div class="field"><label for="prazo">Quando pretende comprar?</label><select id="prazo" name="prazo" required><option value="">Selecione</option><option>Nos próximos 7 dias</option><option>Nos próximos 30 dias</option><option>Nos próximos 60 dias</option><option>Estou pesquisando</option></select></div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit">Solicitar minha proposta de curadoria</button>
+              <p class="privacy-note">Ao enviar, você autoriza o contato comercial da Hilst pelos dados informados.</p>
+              <div class="form-status" id="formStatus" aria-live="polite"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img class="footer-wordmark" src="assets/hilst-wordmark.png" alt="Hilst Joias"></div>
+
+      <div class="footer-center">
+        <span class="footer-line" aria-hidden="true"></span>
+        <p class="footer-message">Mais direção para transformar Prata 925 em uma seleção com identidade.</p>
+        <p class="footer-copy">© 2026 Hilst Joias em Prata · Todos os direitos reservados.</p>
+      </div>
+
+      <div class="footer-review">
+        <a class="google-link" href="https://www.google.com/maps/place/Hilst+Joias+%E2%80%93+Atacado+de+Prata+925+e+Atacado+de+Semijoais/@-22.5876291,-47.3782406,17z/data=!4m8!3m7!1s0x94c881fb477b8a9f:0xd4792d79f521768f!8m2!3d-22.5876291!4d-47.3756657!9m1!1b1!16s%2Fg%2F11t5tc4zp8?entry=ttu&amp;g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver avaliações da Hilst no Google">
+          <img class="google-g" src="assets/google-g.webp" alt="Google">
+          <span class="stars" aria-label="Cinco estrelas">★★★★★</span>
+          <span class="review-title">Avaliação 4,9 no Google</span>
+          <span class="review-count">115 avaliações</span>
+        </a>
+        <div class="social-links" aria-label="Redes sociais Hilst">
+          <a class="social-link" href="https://www.instagram.com/hilstjoiasemprata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Hilst"><img src="assets/instagram.svg" alt=""></a>
+          <a class="social-link" href="https://www.facebook.com/share/1GudS9nNrZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Hilst"><img src="assets/facebook.svg" alt=""></a>
+        </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section class="lead-form" id="contato">
-    <div class="container form-wrap">
-      <div class="form-copy"><div class="eyebrow">Próximo passo</div><h2>Vamos entender qual rota combina com o seu negócio.</h2><p>O formulário qualifica o atendimento sem exigir que a lojista decida tudo sozinha.</p><div class="form-note"><b>Roteamento preparado:</b> esta LP usa a mesma fila comercial do Kit Liberdade, preservando a oferta, a origem da campanha e a consultora responsável.</div></div>
-      <form id="leadForm"><input type="hidden" id="utm_source"><input type="hidden" id="utm_medium"><input type="hidden" id="utm_campaign"><input type="hidden" id="utm_content"><input type="hidden" id="utm_term"><input type="hidden" id="campaign_id"><input type="hidden" id="adset_id"><input type="hidden" id="ad_id"><input type="hidden" id="fbclid"><div class="fields">
-        <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" required placeholder="Como podemos chamar você?"></div>
-        <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" required placeholder="(00) 00000-0000"></div>
-        <div class="field"><label for="email">E-mail <span style="font-weight:400">(opcional)</span></label><input id="email" name="email" type="email" placeholder="voce@exemplo.com"></div>
-        <div class="field"><label for="cidade">Cidade e estado</label><input id="cidade" name="cidade" placeholder="Ex.: Limeira / SP"></div>
-        <div class="field"><label for="negocio">Como você vende?</label><select id="negocio" name="negocio"><option>Loja física</option><option>Loja online</option><option>Revenda pelas redes sociais</option><option>Mais de um canal</option></select></div>
-        <div class="field"><label for="rota">Qual rota interessa mais?</label><select id="rota" name="rota"><option>Coleção recomendada</option><option>Mix personalizado</option><option>Quero orientação</option></select></div>
-        <div class="field full"><label for="instagram">Instagram ou nome da loja</label><input id="instagram" name="instagram" placeholder="@sualoja"></div>
-        <div class="field full"><button class="btn btn-primary" type="submit">Quero falar com uma consultora</button><p class="privacy-note">Ao enviar, você autoriza o contato comercial da Hilst pelos dados informados.</p><div class="form-status" id="formStatus" aria-live="polite"></div></div>
-      </div></form>
-    </div>
-  </section>
+  <a class="mobile-cta" href="#contato">Solicitar minha proposta</a>
 
-  <footer class="footer"><div class="container footer-inner"><img src="assets/logo-hilst.png" alt="Hilst Joias"><p>MVP da LP ICP 2 · Uso estratégico interno<br>Prata 925 no atacado · Conteúdo sujeito à validação</p></div></footer>
-  <a class="mobile-cta" href="#contato">Falar com uma consultora</a>
   <script>
-    const ROUTING_ENDPOINT='';
-    const params=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','utm_term','campaign_id','adset_id','ad_id','fbclid'].forEach(key=>{const field=document.getElementById(key);if(field)field.value=params.get(key)||''});
-    const readCookie=name=>document.cookie.split('; ').find(row=>row.startsWith(name+'='))?.split('=').slice(1).join('=')||'';
-    document.getElementById('leadForm').addEventListener('submit',function(event){event.preventDefault();const status=document.getElementById('formStatus');const fbclid=document.getElementById('fbclid').value;const lead={created_at:new Date().toISOString(),oferta:'Coleções em Movimento - ICP 2',source_lp:'LP ICP 2 - Coleções em Movimento',nome:document.getElementById('nome').value,whatsapp:document.getElementById('whatsapp').value,email:document.getElementById('email').value,cidade:document.getElementById('cidade').value,negocio:document.getElementById('negocio').value,rota:document.getElementById('rota').value,instagram:document.getElementById('instagram').value,page_url:location.href,utm_source:document.getElementById('utm_source').value,utm_medium:document.getElementById('utm_medium').value,utm_campaign:document.getElementById('utm_campaign').value,utm_content:document.getElementById('utm_content').value,utm_term:document.getElementById('utm_term').value,campaign_id:document.getElementById('campaign_id').value,adset_id:document.getElementById('adset_id').value,ad_id:document.getElementById('ad_id').value,fbclid,fbp:readCookie('_fbp'),fbc:readCookie('_fbc')||(fbclid?'fb.1.'+Date.now()+'.'+fbclid:'')};if(!ROUTING_ENDPOINT){status.textContent='MVP: falta configurar o endpoint central e os dois números de WhatsApp para ativar o rodízio.';return}status.textContent='Registrando seus dados e direcionando o atendimento...';const postForm=document.createElement('form');postForm.method='POST';postForm.action=ROUTING_ENDPOINT;postForm.style.display='none';const payload=document.createElement('input');payload.type='hidden';payload.name='payload';payload.value=JSON.stringify(lead);postForm.appendChild(payload);document.body.appendChild(postForm);postForm.submit()});
+    const form = document.getElementById('leadForm');
+    const direction = document.getElementById('direcao');
+    const investment = document.getElementById('faixa-investimento');
+    const status = document.getElementById('formStatus');
+    const mobileCta = document.querySelector('.mobile-cta');
+
+    function selectAndGo(select, value) {
+      select.value = value;
+      document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+      window.setTimeout(() => select.focus({ preventScroll: true }), 550);
+    }
+
+    document.querySelectorAll('.select-direction').forEach(button => {
+      button.addEventListener('click', () => selectAndGo(direction, button.dataset.direction));
+    });
+
+    document.querySelectorAll('.select-investment').forEach(button => {
+      button.addEventListener('click', () => selectAndGo(investment, button.dataset.investment));
+    });
+
+    document.getElementById('whatsapp').addEventListener('input', event => {
+      const digits = event.target.value.replace(/\D/g, '').slice(0, 11);
+      if (digits.length <= 2) event.target.value = digits;
+      else if (digits.length <= 7) event.target.value = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+      else event.target.value = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
+    });
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      status.textContent = 'Layout concluído. Na próxima etapa, este envio será conectado ao atendimento das consultoras.';
+    });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        mobileCta.style.visibility = entries[0].isIntersecting ? 'hidden' : 'visible';
+      }, { threshold: .08 }).observe(document.getElementById('contato'));
+    }
   </script>
 </body>
 </html>

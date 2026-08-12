@@ -1,20 +1,26 @@
-MVP — LP ICP 2 | COLEÇÕES EM MOVIMENTO
+LP DE ENTRADA — CURADORIA HILST | ICP 2
 
 Abra o arquivo index.html mantendo a pasta assets ao lado.
 
-Este MVP valida:
-- direção visual desktop e mobile;
-- uso das fotos prateadas do acervo como Prata 925 legítima;
-- duas rotas de compra: coleção recomendada e mix personalizado;
-- indicação, dentro da própria página, das fotos e vídeos ainda necessários.
+Esta versão contempla:
+- layout final responsivo para desktop e mobile;
+- oferta de curadoria em Prata 925 para lojistas e revendedoras;
+- duas direções visuais construídas com fotos reais das coleções;
+- faixas de intenção de R$ 1.500, R$ 3.000 e R$ 6.000+;
+- tangibilização do atendimento e da proposta de seleção;
+- formulário qualificador em sua versão visual;
+- pré-seleção de direção e investimento pelos botões da página;
+- máscaras e estados de interface necessários para a próxima etapa.
 
-Antes da publicação, a Hilst precisa definir:
-- coleções fixas, sazonais ou baseadas em regras de curadoria;
-- SKUs, quantidades, faixa de investimento, disponibilidade e reposição;
-- limites da personalização com a consultora;
-- condições de uso e acesso ao banco de imagens;
-- pedido mínimo, prazo, garantia, trocas e canal oficial de atendimento.
+As imagens de coleção são referências de linguagem visual e não representam
+pacotes fechados. A composição real será confirmada pela consultora conforme
+preferências, preços e disponibilidade.
 
-O formulário está preparado para usar o mesmo endpoint de roteamento do Kit Liberdade. Ele registra oferta, LP de origem, UTMs, IDs de campanha e dados de correspondência antes de direcionar o lead para uma das duas consultoras.
+Próximas etapas, na ordem definida:
+1. configurar envio, validações finais e rateio entre as consultoras;
+2. conectar a planilha comercial;
+3. configurar rastreamento e eventos;
+4. publicar a versão integrada após teste de ponta a ponta.
 
-Para ativar, preencher a constante ROUTING_ENDPOINT no index.html com a URL /exec do Google Apps Script central e testar um lead completo.
+Os vídeos do acervo identificados como Prata 925 precisam de uma versão limpa,
+sem textos ou áudios promocionais antigos, antes de serem usados nesta LP.
