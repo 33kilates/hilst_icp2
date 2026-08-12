@@ -673,6 +673,8 @@
       try {
         const payload = new URLSearchParams(new FormData(form));
         const query = new URLSearchParams(window.location.search);
+        const phoneDigits = document.getElementById('whatsapp').value.replace(/\D/g, '');
+        payload.set('whatsapp', phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`);
         payload.set('origem_lp', 'LP ICP 2');
         ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(key => {
           if (query.get(key)) payload.set(key, query.get(key));
