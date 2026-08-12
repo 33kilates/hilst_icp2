@@ -579,10 +579,13 @@
             <div>Contato feito por uma consultora Hilst</div>
             <div>Seleção sujeita à disponibilidade</div>
           </div>
-          <div class="form-stage"><b>Próxima etapa do projeto:</b> conectar este formulário ao rateio das consultoras, à planilha comercial e ao rastreamento.</div>
+          <div class="form-stage"><b>Depois do envio:</b> seus dados serão registrados e você seguirá para o WhatsApp da consultora responsável pelo atendimento.</div>
         </div>
 
         <form id="leadForm">
+          <input type="hidden" id="consultora-id" name="consultora_id">
+          <input type="hidden" id="consultora-nome" name="consultora_nome">
+          <input type="hidden" id="consultora-canal" name="consultora_canal">
           <div class="fields">
             <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required></div>
             <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
@@ -630,12 +633,15 @@
 
   <a class="mobile-cta" href="#contato">Solicitar minha proposta</a>
 
+  <script src="assets/lead-routing.js"></script>
   <script>
     const form = document.getElementById('leadForm');
     const direction = document.getElementById('direcao');
     const investment = document.getElementById('faixa-investimento');
     const status = document.getElementById('formStatus');
     const mobileCta = document.querySelector('.mobile-cta');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const leadEndpoint = 'https://script.google.com/macros/s/AKfycbyvQJ1sirenEFTZt4p86quSBULz5YIpv-lT9Ot6jDWcp7LU_On8HVv6PjO1Fk8lzrpl/exec';
 
     function selectAndGo(select, value) {
       select.value = value;
@@ -658,9 +664,42 @@
       else event.target.value = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
     });
 
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
       event.preventDefault();
-      status.textContent = 'Layout concluído. Na próxima etapa, este envio será conectado ao atendimento das consultoras.';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando seus dados...';
+      status.textContent = 'Só um momento. Estamos direcionando seu atendimento.';
+
+      try {
+        const payload = new URLSearchParams(new FormData(form));
+        const query = new URLSearchParams(window.location.search);
+        payload.set('origem_lp', 'LP ICP 2');
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(key => {
+          if (query.get(key)) payload.set(key, query.get(key));
+        });
+
+        const response = await fetch(leadEndpoint, { method: 'POST', body: payload });
+        const result = await response.json();
+        if (!result.ok || !result.consultant || !result.consultant.phone) {
+          throw new Error(result.error || 'Não foi possível concluir o envio.');
+        }
+
+        const consultant = result.consultant;
+        document.getElementById('consultora-id').value = consultant.id;
+        document.getElementById('consultora-nome').value = consultant.name;
+        document.getElementById('consultora-canal').value = consultant.channel;
+        status.textContent = `${result.serviceMessage} Abrindo o WhatsApp de ${consultant.name}...`;
+
+        const firstName = document.getElementById('nome').value.trim().split(/\s+/)[0];
+        const message = `Olá, ${consultant.name}! Sou ${firstName}. Acabei de preencher o formulário de curadoria de Prata 925 da Hilst e gostaria de seguir com o atendimento.`;
+        window.setTimeout(() => {
+          window.location.href = `https://wa.me/${consultant.phone}?text=${encodeURIComponent(message)}`;
+        }, 500);
+      } catch (error) {
+        status.textContent = 'Não conseguimos concluir o envio agora. Confira sua conexão e tente novamente.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Solicitar minha proposta de curadoria';
+      }
     });
 
     if ('IntersectionObserver' in window) {
