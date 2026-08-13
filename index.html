@@ -642,6 +642,43 @@
     const mobileCta = document.querySelector('.mobile-cta');
     const submitButton = form.querySelector('button[type="submit"]');
     const leadEndpoint = 'https://script.google.com/macros/s/AKfycbyvQJ1sirenEFTZt4p86quSBULz5YIpv-lT9Ot6jDWcp7LU_On8HVv6PjO1Fk8lzrpl/exec';
+    let isSubmitting = false;
+
+    function wait(milliseconds) {
+      return new Promise(resolve => window.setTimeout(resolve, milliseconds));
+    }
+
+    async function sendLeadWithRetry(payload) {
+      let lastError;
+      for (let attempt = 1; attempt <= 3; attempt += 1) {
+        const controller = new AbortController();
+        const timeout = window.setTimeout(() => controller.abort(), 18000);
+        try {
+          const response = await fetch(leadEndpoint, {
+            method: 'POST',
+            body: payload,
+            cache: 'no-store',
+            signal: controller.signal
+          });
+          if (!response.ok) throw new Error(`Falha temporária (${response.status}).`);
+          const result = await response.json();
+          if (!result.ok) {
+            const error = new Error(result.error || 'Não foi possível concluir o envio.');
+            error.isBusinessError = true;
+            throw error;
+          }
+          return result;
+        } catch (error) {
+          lastError = error;
+          if (error.isBusinessError || attempt === 3) throw error;
+          status.textContent = 'A conexão oscilou. Estamos confirmando seus dados sem criar outro cadastro...';
+          await wait(attempt * 900);
+        } finally {
+          window.clearTimeout(timeout);
+        }
+      }
+      throw lastError;
+    }
 
     function selectAndGo(select, value) {
       select.value = value;
@@ -666,6 +703,8 @@
 
     form.addEventListener('submit', async event => {
       event.preventDefault();
+      if (isSubmitting) return;
+      isSubmitting = true;
       submitButton.disabled = true;
       submitButton.textContent = 'Enviando seus dados...';
       status.textContent = 'Só um momento. Estamos direcionando seu atendimento.';
@@ -674,17 +713,17 @@
         const payload = new URLSearchParams(new FormData(form));
         const query = new URLSearchParams(window.location.search);
         const phoneDigits = document.getElementById('whatsapp').value.replace(/\D/g, '');
+        if (phoneDigits.length < 10 || phoneDigits.length > 11) {
+          throw new Error('Confira o WhatsApp informado, incluindo o DDD.');
+        }
         payload.set('whatsapp', phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`);
         payload.set('origem_lp', 'LP ICP 2');
         ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(key => {
           if (query.get(key)) payload.set(key, query.get(key));
         });
 
-        const response = await fetch(leadEndpoint, { method: 'POST', body: payload });
-        const result = await response.json();
-        if (!result.ok || !result.consultant || !result.consultant.phone) {
-          throw new Error(result.error || 'Não foi possível concluir o envio.');
-        }
+        const result = await sendLeadWithRetry(payload);
+        if (!result.consultant || !result.consultant.phone) throw new Error('A consultora não foi identificada.');
 
         const consultant = result.consultant;
         document.getElementById('consultora-id').value = consultant.id;
@@ -698,7 +737,10 @@
           window.location.href = `https://wa.me/${consultant.phone}?text=${encodeURIComponent(message)}`;
         }, 500);
       } catch (error) {
-        status.textContent = 'Não conseguimos concluir o envio agora. Confira sua conexão e tente novamente.';
+        status.textContent = error.message && error.message.indexOf('WhatsApp') >= 0
+          ? error.message
+          : 'Não conseguimos confirmar o envio agora. Aguarde alguns segundos e tente novamente; seu cadastro não será duplicado.';
+        isSubmitting = false;
         submitButton.disabled = false;
         submitButton.textContent = 'Solicitar minha proposta de curadoria';
       }
