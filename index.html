@@ -100,6 +100,15 @@
     .awareness-item b{display:block;margin-bottom:3px;font-family:"Playfair Display",Georgia,serif;font-size:1.08rem}
     .awareness-item p{margin:0;color:#cfc2c3;font-size:.82rem}
 
+    .collection-bridge{background:#fff}
+    .collection-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+    .collection-step{position:relative;min-height:205px;padding:25px;background:var(--cream);border:1px solid var(--line);border-radius:20px}
+    .collection-step:not(:last-child)::after{content:"→";position:absolute;z-index:2;right:-21px;top:50%;width:28px;height:28px;display:grid;place-items:center;transform:translateY(-50%);border-radius:50%;background:var(--rose-dark);color:#fff;font-size:.8rem}
+    .collection-step .n{display:block;margin-bottom:36px;color:var(--rose-dark);font-size:.66rem;font-weight:700;letter-spacing:.12em}
+    .collection-step h3{margin:0 0 8px;font:700 1.26rem "Playfair Display",Georgia,serif}
+    .collection-step p{margin:0;color:var(--muted);font-size:.8rem}
+    .collection-foot{max-width:850px;margin:24px auto 0;color:var(--muted);text-align:center;font-size:.8rem}
+
     .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .process-card{position:relative;min-height:290px;padding:30px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-soft)}
     .process-card .n{width:44px;height:44px;display:grid;place-items:center;margin-bottom:58px;border-radius:50%;background:var(--blush);color:var(--rose-dark);font-size:.75rem;font-weight:700}
@@ -268,6 +277,8 @@
       .proof-item b{font-size:.96rem}
       .awareness h2{font-size:2.65rem}
       .process-grid,.direction-grid,.investment-grid{grid-template-columns:1fr}
+      .collection-flow{grid-template-columns:1fr 1fr}
+      .collection-step:not(:last-child)::after{display:none}
       .process-card{min-height:0;padding:25px}
       .process-card .n{margin-bottom:36px}
       .directions-intro{display:block}
@@ -289,6 +300,7 @@
     }
 
     @media(max-width:480px){
+      .collection-flow{grid-template-columns:1fr}
       .nav .btn{display:none}
       .section-head h2{font-size:2.3rem}
       .hero-card{width:100%}
@@ -458,6 +470,23 @@
       </div>
     </section>
 
+    <section class="collection-bridge" aria-labelledby="collection-bridge-title">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Da coleção à sua proposta</p>
+          <h2 id="collection-bridge-title">Você não precisa comprar uma coleção inteira para trazer sua direção para a loja.</h2>
+          <p>Os looks completos funcionam como referência visual. A partir deles, a consultora organiza um ponto de partida proporcional ao investimento e às categorias que fazem sentido para você.</p>
+        </div>
+        <div class="collection-flow" aria-label="Como uma coleção se transforma em uma proposta ajustável">
+          <article class="collection-step"><span class="n">ETAPA 01</span><h3>Coleção completa</h3><p>Apresenta a linguagem, as combinações e as possibilidades do universo visual.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 02</span><h3>Referência de estilo</h3><p>Você identifica a direção que mais se aproxima do que deseja levar para suas clientes.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 03</span><h3>Seleção proporcional</h3><p>A faixa de investimento e as categorias prioritárias definem o tamanho do ponto de partida.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 04</span><h3>Ajustes com você</h3><p>Preferências e prioridades podem ser refinadas antes do fechamento do pedido.</p></article>
+        </div>
+        <p class="collection-foot">A composição final depende das peças disponíveis, dos valores e das condições confirmadas durante o atendimento.</p>
+      </div>
+    </section>
+
     <section class="investment" id="investimento">
       <div class="container">
         <div class="section-head center">
@@ -470,8 +499,8 @@
           <article class="investment-card">
             <div class="label">Seleção essencial</div>
             <p class="price">R$ 1.500</p>
-            <div class="name">Ponto de partida</div>
-            <p>Para quem busca uma seleção mais concentrada dentro de uma direção visual.</p>
+            <div class="name">Começar com foco</div>
+            <p>Uma proposta mais concentrada para testar uma direção ou reforçar categorias prioritárias.</p>
             <ul><li>Curadoria dentro da faixa</li><li>Definição de categorias prioritárias</li><li>Ajustes com a consultora</li></ul>
             <button class="btn select-investment" type="button" data-investment="R$ 1.500">Tenho interesse</button>
           </article>
@@ -479,8 +508,8 @@
           <article class="investment-card featured">
             <div class="label">Faixa recomendada</div>
             <p class="price">R$ 3.000</p>
-            <div class="name">Seleção de vitrine</div>
-            <p>Para quem deseja ampliar a variedade percebida sem partir para a coleção completa.</p>
+            <div class="name">Construir uma seleção mais completa</div>
+            <p>Mais espaço para combinar categorias e criar uma apresentação mais consistente sem partir para a coleção completa.</p>
             <ul><li>Maior amplitude de categorias</li><li>Direção visual mais desenvolvida</li><li>Possibilidade de personalização</li></ul>
             <button class="btn select-investment" type="button" data-investment="R$ 3.000">Quero esta faixa</button>
           </article>
@@ -488,8 +517,8 @@
           <article class="investment-card">
             <div class="label">Seleção expansão</div>
             <p class="price">R$ 6.000+</p>
-            <div class="name">Mais variedade e profundidade</div>
-            <p>Para operações que procuram uma seleção mais ampla e maior presença de coleção.</p>
+            <div class="name">Ampliar variedade e profundidade</div>
+            <p>Uma proposta mais ampla, com possibilidade de trabalhar diferentes categorias e funções dentro da compra.</p>
             <ul><li>Maior cobertura de categorias</li><li>Mais possibilidades de composição</li><li>Curadoria adaptada à operação</li></ul>
             <button class="btn select-investment" type="button" data-investment="R$ 6.000 ou mais">Tenho interesse</button>
           </article>
@@ -506,9 +535,10 @@
           <h2>Uma conversa com direção — não um envio genérico de catálogo.</h2>
           <p>As respostas do formulário organizam o início do atendimento e ajudam a consultora a preparar uma proposta mais relevante.</p>
           <div class="deliver-list">
-            <div class="deliver-item"><span class="check">01</span><div><b>Leitura do seu perfil</b><span>Momento do negócio, canal de venda e intenção de compra.</span></div></div>
-            <div class="deliver-item"><span class="check">02</span><div><b>Proposta de seleção</b><span>Direção visual, categorias e faixa de investimento escolhida.</span></div></div>
-            <div class="deliver-item"><span class="check">03</span><div><b>Ajustes antes do fechamento</b><span>Refinamento de preferências conforme disponibilidade.</span></div></div>
+            <div class="deliver-item"><span class="check">01</span><div><b>Leitura do momento da loja</b><span>Canal de venda, objetivo da compra, categorias e investimento.</span></div></div>
+            <div class="deliver-item"><span class="check">02</span><div><b>Uma direção para a compra</b><span>Um ponto de partida organizado a partir do que faz sentido para sua operação.</span></div></div>
+            <div class="deliver-item"><span class="check">03</span><div><b>Composição mais clara</b><span>Peças apresentadas por categorias, combinações e papel dentro da seleção.</span></div></div>
+            <div class="deliver-item"><span class="check">04</span><div><b>Ajustes antes do pedido</b><span>Você pode trocar prioridades, reduzir uma categoria ou ampliar outra antes de fechar.</span></div></div>
           </div>
         </div>
 
@@ -516,19 +546,21 @@
           <div class="proposal-head"><img src="assets/hilst-wordmark.png" alt="Hilst Joias"><span>Exemplo ilustrativo</span></div>
           <div class="proposal-body">
             <small>Resumo da curadoria</small>
-            <h3>Uma proposta começa pelas decisões certas.</h3>
+            <h3>Veja como suas respostas podem virar um plano de conversa.</h3>
             <div class="proposal-data">
               <div><small>Direção visual</small><b>Camadas &amp; Luminosidade</b></div>
               <div><small>Investimento</small><b>Faixa de R$ 3.000</b></div>
               <div><small>Operação</small><b>Loja física + Instagram</b></div>
               <div><small>Prioridades</small><b>Colares, brincos e anéis</b></div>
+              <div><small>Objetivo da compra</small><b>Renovar a apresentação</b></div>
+              <div><small>Lógica inicial</small><b>Variedade coordenada</b></div>
             </div>
             <div class="allocation">
-              <div class="allocation-title"><span>Distribuição ilustrativa</span><span>A confirmar</span></div>
+              <div class="allocation-title"><span>Composição ilustrativa</span><span>A confirmar</span></div>
               <div class="bar" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="legend"><span>Peças-base</span><span>Protagonistas</span><span>Complementos</span></div>
+              <div class="legend"><span>Base do mix</span><span>Renovação visual</span><span>Complementos</span></div>
             </div>
-            <p class="proposal-note">A seleção real será montada pela consultora após validar preferências, preços e disponibilidade.</p>
+            <p class="proposal-note">Este quadro apenas demonstra como o atendimento pode organizar as informações. A seleção real será montada pela consultora após validar preferências, preços e disponibilidade.</p>
           </div>
         </div>
       </div>
@@ -591,6 +623,7 @@
             <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
             <div class="field"><label for="cidade">Cidade e estado</label><input id="cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Goiânia, GO" required></div>
             <div class="field"><label for="operacao">Como você vende?</label><select id="operacao" name="operacao" required><option value="">Selecione</option><option>Loja física</option><option>Loja física + online</option><option>E-commerce ou Instagram</option><option>Revenda por atendimento</option><option>Estou começando</option></select></div>
+            <div class="field"><label for="objetivo">Qual é o principal objetivo desta compra?</label><select id="objetivo" name="objetivo" required><option value="">Selecione</option><option>Renovar minha vitrine</option><option>Reforçar categorias que já vendo</option><option>Experimentar uma nova direção</option><option>Criar mais combinações</option><option>Montar meu primeiro estoque</option><option>Quero uma recomendação</option></select></div>
             <div class="field"><label for="direcao">Direção visual</label><select id="direcao" name="direcao" required><option value="">Selecione</option><option>Camadas &amp; Luminosidade</option><option>Cor &amp; Presença</option><option>Quero combinar as duas</option><option>Prefiro uma recomendação</option></select></div>
             <div class="field"><label for="faixa-investimento">Faixa de investimento</label><select id="faixa-investimento" name="investimento" required><option value="">Selecione</option><option>Até R$ 1.500</option><option>R$ 1.500</option><option>R$ 3.000</option><option>R$ 6.000 ou mais</option><option>Ainda não defini</option></select></div>
             <div class="field"><label for="categorias">Categorias prioritárias</label><select id="categorias" name="categorias" required><option value="">Selecione</option><option>Colares</option><option>Brincos</option><option>Anéis</option><option>Pulseiras</option><option>Quero variedade</option><option>Preciso de orientação</option></select></div>
@@ -712,11 +745,14 @@
       try {
         const payload = new URLSearchParams(new FormData(form));
         const query = new URLSearchParams(window.location.search);
+        const objective = document.getElementById('objetivo').value;
+        const categories = document.getElementById('categorias').value;
         const phoneDigits = document.getElementById('whatsapp').value.replace(/\D/g, '');
         if (phoneDigits.length < 10 || phoneDigits.length > 11) {
           throw new Error('Confira o WhatsApp informado, incluindo o DDD.');
         }
         payload.set('whatsapp', phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`);
+        payload.set('categorias', `${categories} | Objetivo: ${objective}`);
         payload.set('origem_lp', 'LP ICP 2');
         ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(key => {
           if (query.get(key)) payload.set(key, query.get(key));
@@ -732,7 +768,7 @@
         status.textContent = `${result.serviceMessage} Abrindo o WhatsApp de ${consultant.name}...`;
 
         const firstName = document.getElementById('nome').value.trim().split(/\s+/)[0];
-        const message = `Olá, ${consultant.name}! Sou ${firstName}. Acabei de preencher o formulário de curadoria de Prata 925 da Hilst e gostaria de seguir com o atendimento.`;
+        const message = `Olá, ${consultant.name}! Sou ${firstName}. Acabei de preencher o formulário de curadoria de Prata 925 da Hilst. Meu principal objetivo é: ${objective}. Gostaria de seguir com o atendimento.`;
         window.setTimeout(() => {
           window.location.href = `https://wa.me/${consultant.phone}?text=${encodeURIComponent(message)}`;
         }, 500);
