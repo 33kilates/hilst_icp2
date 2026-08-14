@@ -752,7 +752,8 @@
           throw new Error('Confira o WhatsApp informado, incluindo o DDD.');
         }
         payload.set('whatsapp', phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`);
-        payload.set('categorias', `${categories} | Objetivo: ${objective}`);
+        payload.set('categorias', categories);
+        payload.set('objetivo', objective);
         payload.set('origem_lp', 'LP ICP 2');
         ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(key => {
           if (query.get(key)) payload.set(key, query.get(key));
