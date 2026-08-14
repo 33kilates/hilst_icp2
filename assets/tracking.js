@@ -1,7 +1,7 @@
-(function () {
+﻿(function () {
   'use strict';
 
-  const META_PIXEL_ID = '';
+  const META_PIXEL_ID = '1690123275608062';
   const ATTRIBUTION_KEY = 'hilst_attribution_v1';
   const ATTRIBUTION_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'];
 
