@@ -84,6 +84,28 @@
     window.fbq('track', 'Contact', { content_name: 'WhatsApp consultora Hilst' }, { eventID: eventId });
   }
 
+  function trackFormStart(formVersion) {
+    if (!META_PIXEL_ID || !window.fbq) return;
+    window.fbq('trackCustom', 'FormStart', { form_version: formVersion || '' });
+  }
+
+  function trackQualificationStepComplete(formVersion) {
+    if (!META_PIXEL_ID || !window.fbq) return;
+    window.fbq('trackCustom', 'QualificationStepComplete', { form_version: formVersion || '', step: 1 });
+  }
+
+  function trackFormError(errorType) {
+    if (!META_PIXEL_ID || !window.fbq) return;
+    window.fbq('trackCustom', 'FormError', { error_type: errorType || 'unknown' });
+  }
+
   initializePixel();
-  window.HilstTracking = { appendToPayload, trackLead, trackContact };
+  window.HilstTracking = {
+    appendToPayload,
+    trackLead,
+    trackContact,
+    trackFormStart,
+    trackQualificationStepComplete,
+    trackFormError
+  };
 })();

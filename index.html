@@ -32,7 +32,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:92px}
     body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-    img{display:block;max-width:100%}
+    img{display:block;max-width:100%;height:auto}
     a{color:inherit}
     button,input,select{font:inherit}
     button{color:inherit}
@@ -69,6 +69,7 @@
     .hero h1 em{color:var(--rose-dark);font-weight:600}
     .hero .lead{max-width:650px;margin:0 0 30px;color:var(--muted);font-size:1.1rem}
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-minimum{margin:12px 0 0;color:var(--rose-deep);font-size:.79rem;font-weight:700}
     .hero-proof{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:25px;color:var(--muted);font-size:.79rem}
     .hero-proof span{display:flex;align-items:center;gap:7px}
     .hero-proof span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
@@ -101,8 +102,8 @@
     .awareness-item p{margin:0;color:#cfc2c3;font-size:.82rem}
 
     .collection-bridge{background:#fff}
-    .collection-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
-    .collection-step{position:relative;min-height:205px;padding:25px;background:var(--cream);border:1px solid var(--line);border-radius:20px}
+    .collection-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:38px}
+    .collection-step{position:relative;min-height:215px;padding:24px;background:var(--cream);border:1px solid var(--line);border-radius:20px}
     .collection-step:not(:last-child)::after{content:"→";position:absolute;z-index:2;right:-21px;top:50%;width:28px;height:28px;display:grid;place-items:center;transform:translateY(-50%);border-radius:50%;background:var(--rose-dark);color:#fff;font-size:.8rem}
     .collection-step .n{display:block;margin-bottom:36px;color:var(--rose-dark);font-size:.66rem;font-weight:700;letter-spacing:.12em}
     .collection-step h3{margin:0 0 8px;font:700 1.26rem "Playfair Display",Georgia,serif}
@@ -122,12 +123,13 @@
     .direction-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .direction-card{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow-soft)}
     .direction-gallery{display:grid;grid-template-columns:1.3fr .7fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:7px;height:510px;padding:7px;background:#fff;overflow:hidden}
+    .direction-gallery picture{display:block;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden}
     .direction-gallery img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover}
     .direction-gallery .main{grid-row:1/-1;border-radius:21px 7px 7px 21px}
-    .direction-gallery img:nth-child(2){border-radius:7px 21px 7px 7px}
-    .direction-gallery img:nth-child(3){border-radius:7px 7px 21px 7px}
+    .direction-gallery picture:nth-child(2){border-radius:7px 21px 7px 7px}
+    .direction-gallery picture:nth-child(3){border-radius:7px 7px 21px 7px}
     .direction-card.camadas .direction-gallery img{object-position:center}
-    .direction-card.presenca .direction-gallery .main{object-position:50% 25%}
+    .direction-card.presenca .direction-gallery .main img{object-position:50% 25%}
     .direction-body{position:relative;z-index:1;padding:28px;background:#fff}
     .direction-kicker{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:9px;color:var(--rose-dark);font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
     .direction-kicker span:last-child{padding:5px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);letter-spacing:.05em}
@@ -210,12 +212,25 @@
     .form-summary div{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.78rem}
     .form-summary div::before{content:"";width:8px;height:8px;flex:0 0 auto;border-radius:50%;background:var(--green)}
     .form-stage{margin-top:27px;padding:14px 16px;border-left:3px solid var(--rose-dark);background:var(--cream);color:var(--muted);font-size:.73rem}
+    .form-progress{margin-bottom:24px}
+    .form-progress-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:9px;color:var(--rose-deep);font-size:.72rem;font-weight:700}
+    .progress-track{height:7px;overflow:hidden;border-radius:999px;background:var(--blush)}
+    .progress-value{display:block;width:50%;height:100%;border-radius:inherit;background:var(--rose-dark);transition:width .25s ease}
+    .form-step{border:0;margin:0;padding:0;min-width:0}
+    .form-step[hidden]{display:none}
+    .form-step-title{margin:0 0 18px;font:700 1.45rem/1.2 "Playfair Display",Georgia,serif}
     .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .field{display:flex;flex-direction:column;gap:6px}
     .field.full{grid-column:1/-1}
     .field label{font-size:.72rem;font-weight:700}
     .field input,.field select{width:100%;height:50px;padding:0 13px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink)}
     .field input:focus,.field select:focus{outline:2px solid rgba(126,80,86,.27);border-color:var(--rose-dark)}
+    .field-help{margin:0;color:var(--muted);font-size:.67rem;line-height:1.45}
+    .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .choice{display:flex;align-items:flex-start;gap:9px;min-height:46px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--cream);cursor:pointer;font-size:.72rem;font-weight:600;line-height:1.35}
+    .choice input{width:16px;height:16px;flex:0 0 auto;margin:1px 0 0;accent-color:var(--rose-dark)}
+    .form-nav{display:flex;gap:10px;grid-column:1/-1;margin-top:4px}
+    .form-nav .btn{flex:1}
     .field .btn{width:100%;margin-top:3px}
     .privacy-note{margin:8px 0 0;color:var(--muted);font-size:.66rem;line-height:1.45}
     .form-status{min-height:23px;margin-top:9px;color:var(--green);font-size:.76rem}
@@ -252,6 +267,8 @@
       .direction-gallery{height:440px}
       .trust-photo{height:540px}
       .form-wrap{padding:38px}
+      .collection-flow{grid-template-columns:repeat(3,1fr)}
+      .collection-step:not(:last-child)::after{display:none}
     }
 
     @media(max-width:760px){
@@ -291,6 +308,8 @@
       .form-wrap{padding:28px 22px;gap:32px}
       .fields{grid-template-columns:1fr}
       .field.full{grid-column:auto}
+      .choice-grid{grid-template-columns:1fr}
+      .form-nav{grid-column:auto;flex-direction:column-reverse}
       .footer{padding:64px 0 104px}
       .footer-inner{grid-template-columns:1fr;gap:38px;text-align:center}
       .footer-brand{justify-content:center}
@@ -340,13 +359,14 @@
     <header class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Curadoria Hilst para sua loja</p>
-          <h1>Uma seleção de Prata 925 com <em>direção.</em></h1>
-          <p class="lead">Escolha o universo visual e a faixa de investimento. Uma consultora Hilst apresenta uma curadoria alinhada ao momento da sua operação — sem precisar começar pela coleção completa.</p>
+          <p class="eyebrow">Prata 925 no atacado para lojistas e revendedoras</p>
+          <h1>Não comece por um catálogo infinito. <em>Comece pelo que sua loja precisa agora.</em></h1>
+          <p class="lead">Conte como vende, o objetivo da próxima compra e a faixa de investimento. Uma consultora Hilst prepara um ponto de partida em Prata 925 que pode ser ajustado com você.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contato">Solicitar minha proposta</a>
+            <a class="btn btn-primary" href="#contato">Montar minha proposta de compra</a>
             <a class="btn btn-soft" href="#direcoes">Conhecer as direções</a>
           </div>
+          <p class="hero-minimum">Pedido mínimo no atacado: R$ 600.</p>
           <div class="hero-proof" aria-label="Diferenciais">
             <span>Joias legítimas em Prata 925</span>
             <span>Seleção orientada</span>
@@ -355,7 +375,11 @@
         </div>
 
         <div class="hero-media">
-          <img class="hero-photo" src="assets/icp2-hero.jpg" alt="Modelo usando composição de joias em Prata 925 Hilst" fetchpriority="high">
+          <picture>
+            <source type="image/avif" srcset="assets/responsive/icp2-hero-480.avif 480w, assets/responsive/icp2-hero-768.avif 768w, assets/responsive/icp2-hero-1200.avif 1200w" sizes="(max-width: 760px) calc(100vw - 30px), (max-width: 980px) 680px, 46vw">
+            <source type="image/webp" srcset="assets/responsive/icp2-hero-480.webp 480w, assets/responsive/icp2-hero-768.webp 768w, assets/responsive/icp2-hero-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 30px), (max-width: 980px) 680px, 46vw">
+            <img class="hero-photo" src="assets/icp2-hero.jpg" width="1200" height="1501" alt="Modelo usando composição de joias em Prata 925 Hilst" fetchpriority="high" decoding="async">
+          </picture>
           <div class="hero-card">
             <small>Seu ponto de partida</small>
             <b>Estilo, investimento e perfil da loja.</b>
@@ -402,7 +426,7 @@
       <div class="container">
         <div class="section-head center">
           <p class="eyebrow">Como funciona</p>
-          <h2>Da intenção à proposta em três passos.</h2>
+          <h2>Da intenção à proposta com um caminho claro.</h2>
           <p>A primeira conversa já começa com contexto. Assim, a consultora entende o que procurar antes de apresentar as opções.</p>
         </div>
         <div class="process-grid">
@@ -439,9 +463,9 @@
         <div class="direction-grid">
           <article class="direction-card camadas">
             <div class="direction-gallery">
-              <img class="main" src="assets/direcao-camadas-01.jpg" alt="Composição de colares em Prata 925 da direção Camadas e Luminosidade">
-              <img src="assets/direcao-camadas-02.jpg" alt="Colares com brilho em Prata 925">
-              <img src="assets/direcao-camadas-03.jpg" alt="Colares delicados em Prata 925">
+              <picture class="main"><source type="image/avif" srcset="assets/responsive/direcao-camadas-01-360.avif 360w, assets/responsive/direcao-camadas-01-600.avif 600w, assets/responsive/direcao-camadas-01-900.avif 900w"><source type="image/webp" srcset="assets/responsive/direcao-camadas-01-360.webp 360w, assets/responsive/direcao-camadas-01-600.webp 600w, assets/responsive/direcao-camadas-01-900.webp 900w"><img src="assets/direcao-camadas-01.jpg" width="900" height="1600" alt="Composição de colares em Prata 925 da direção Camadas e Luminosidade" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/avif" srcset="assets/responsive/direcao-camadas-02-360.avif 360w, assets/responsive/direcao-camadas-02-600.avif 600w, assets/responsive/direcao-camadas-02-900.avif 900w"><source type="image/webp" srcset="assets/responsive/direcao-camadas-02-360.webp 360w, assets/responsive/direcao-camadas-02-600.webp 600w, assets/responsive/direcao-camadas-02-900.webp 900w"><img src="assets/direcao-camadas-02.jpg" width="900" height="1600" alt="Colares com brilho em Prata 925" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/avif" srcset="assets/responsive/direcao-camadas-03-360.avif 360w, assets/responsive/direcao-camadas-03-600.avif 600w, assets/responsive/direcao-camadas-03-900.avif 900w"><source type="image/webp" srcset="assets/responsive/direcao-camadas-03-360.webp 360w, assets/responsive/direcao-camadas-03-600.webp 600w, assets/responsive/direcao-camadas-03-900.webp 900w"><img src="assets/direcao-camadas-03.jpg" width="900" height="1600" alt="Colares delicados em Prata 925" loading="lazy" decoding="async"></picture>
             </div>
             <div class="direction-body">
               <div class="direction-kicker"><span>Direção 01</span></div>
@@ -454,9 +478,9 @@
 
           <article class="direction-card presenca">
             <div class="direction-gallery">
-              <img class="main" src="assets/direcao-presenca-01.jpg" alt="Brincos em Prata 925 da direção Cor e Presença">
-              <img src="assets/direcao-presenca-02.jpg" alt="Colares em Prata 925 com pontos de cor">
-              <img src="assets/direcao-presenca-03.jpg" alt="Composição de brincos em Prata 925">
+              <picture class="main"><source type="image/avif" srcset="assets/responsive/direcao-presenca-01-360.avif 360w, assets/responsive/direcao-presenca-01-600.avif 600w, assets/responsive/direcao-presenca-01-720.avif 720w"><source type="image/webp" srcset="assets/responsive/direcao-presenca-01-360.webp 360w, assets/responsive/direcao-presenca-01-600.webp 600w, assets/responsive/direcao-presenca-01-720.webp 720w"><img src="assets/direcao-presenca-01.jpg" width="720" height="1280" alt="Brincos em Prata 925 da direção Cor e Presença" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/avif" srcset="assets/responsive/direcao-presenca-02-360.avif 360w, assets/responsive/direcao-presenca-02-600.avif 600w, assets/responsive/direcao-presenca-02-720.avif 720w"><source type="image/webp" srcset="assets/responsive/direcao-presenca-02-360.webp 360w, assets/responsive/direcao-presenca-02-600.webp 600w, assets/responsive/direcao-presenca-02-720.webp 720w"><img src="assets/direcao-presenca-02.jpg" width="720" height="1280" alt="Colares em Prata 925 com pontos de cor" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/avif" srcset="assets/responsive/direcao-presenca-03-360.avif 360w, assets/responsive/direcao-presenca-03-600.avif 600w, assets/responsive/direcao-presenca-03-720.avif 720w"><source type="image/webp" srcset="assets/responsive/direcao-presenca-03-360.webp 360w, assets/responsive/direcao-presenca-03-600.webp 600w, assets/responsive/direcao-presenca-03-720.webp 720w"><img src="assets/direcao-presenca-03.jpg" width="720" height="1280" alt="Composição de brincos em Prata 925" loading="lazy" decoding="async"></picture>
             </div>
             <div class="direction-body">
               <div class="direction-kicker"><span>Direção 02</span></div>
@@ -478,10 +502,11 @@
           <p>Os looks completos funcionam como referência visual. A partir deles, a consultora organiza um ponto de partida proporcional ao investimento e às categorias que fazem sentido para você.</p>
         </div>
         <div class="collection-flow" aria-label="Como uma coleção se transforma em uma proposta ajustável">
-          <article class="collection-step"><span class="n">ETAPA 01</span><h3>Coleção completa</h3><p>Apresenta a linguagem, as combinações e as possibilidades do universo visual.</p></article>
-          <article class="collection-step"><span class="n">ETAPA 02</span><h3>Referência de estilo</h3><p>Você identifica a direção que mais se aproxima do que deseja levar para suas clientes.</p></article>
-          <article class="collection-step"><span class="n">ETAPA 03</span><h3>Seleção proporcional</h3><p>A faixa de investimento e as categorias prioritárias definem o tamanho do ponto de partida.</p></article>
-          <article class="collection-step"><span class="n">ETAPA 04</span><h3>Ajustes com você</h3><p>Preferências e prioridades podem ser refinadas antes do fechamento do pedido.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 01</span><h3>Conte como vende</h3><p>Sua operação e o objetivo da compra dão contexto ao atendimento.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 02</span><h3>Escolha uma direção</h3><p>Use as coleções como referência visual ou peça uma recomendação.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 03</span><h3>Defina prioridades</h3><p>Indique categorias e a faixa de investimento que fazem sentido agora.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 04</span><h3>Receba um ponto de partida</h3><p>A consultora organiza uma seleção proporcional ao seu objetivo.</p></article>
+          <article class="collection-step"><span class="n">ETAPA 05</span><h3>Ajuste antes de fechar</h3><p>Você pode trocar prioridades e refinar a composição conforme a disponibilidade.</p></article>
         </div>
         <p class="collection-foot">A composição final depende das peças disponíveis, dos valores e das condições confirmadas durante o atendimento.</p>
       </div>
@@ -502,7 +527,7 @@
             <div class="name">Começar com foco</div>
             <p>Uma proposta mais concentrada para testar uma direção ou reforçar categorias prioritárias.</p>
             <ul><li>Curadoria dentro da faixa</li><li>Definição de categorias prioritárias</li><li>Ajustes com a consultora</li></ul>
-            <button class="btn select-investment" type="button" data-investment="R$ 1.500">Tenho interesse</button>
+            <button class="btn select-investment" type="button" data-investment="De R$ 1.500 a R$ 2.999">Tenho interesse</button>
           </article>
 
           <article class="investment-card featured">
@@ -511,7 +536,7 @@
             <div class="name">Construir uma seleção mais completa</div>
             <p>Mais espaço para combinar categorias e criar uma apresentação mais consistente sem partir para a coleção completa.</p>
             <ul><li>Maior amplitude de categorias</li><li>Direção visual mais desenvolvida</li><li>Possibilidade de personalização</li></ul>
-            <button class="btn select-investment" type="button" data-investment="R$ 3.000">Quero esta faixa</button>
+            <button class="btn select-investment" type="button" data-investment="De R$ 3.000 a R$ 5.999">Quero esta faixa</button>
           </article>
 
           <article class="investment-card">
@@ -524,7 +549,7 @@
           </article>
         </div>
 
-        <p class="investment-foot">Os valores representam faixas de intenção, não kits com composição fechada. Outras seleções podem ser avaliadas pela consultora, respeitando o pedido mínimo de R$ 600 e a disponibilidade de estoque.</p>
+        <p class="investment-foot"><b>As faixas são pontos de partida e não representam kits fechados.</b> A composição pode ser ajustada com a consultora.<br>Pedido mínimo no atacado: R$ 600. Outras composições podem ser avaliadas conforme o objetivo da compra e a disponibilidade das peças.</p>
       </div>
     </section>
 
@@ -568,7 +593,11 @@
 
     <section class="trust">
       <div class="container trust-grid">
-        <img class="trust-photo" src="assets/icp2-product-macro.jpg" alt="Detalhe de acabamento de joia em Prata 925 Hilst" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="assets/responsive/icp2-product-macro-480.avif 480w, assets/responsive/icp2-product-macro-768.avif 768w, assets/responsive/icp2-product-macro-1200.avif 1200w" sizes="(max-width: 980px) calc(100vw - 48px), 44vw">
+          <source type="image/webp" srcset="assets/responsive/icp2-product-macro-480.webp 480w, assets/responsive/icp2-product-macro-768.webp 768w, assets/responsive/icp2-product-macro-1200.webp 1200w" sizes="(max-width: 980px) calc(100vw - 48px), 44vw">
+          <img class="trust-photo" src="assets/icp2-product-macro.jpg" width="1200" height="2131" alt="Detalhe de acabamento de joia em Prata 925 Hilst" loading="lazy" decoding="async">
+        </picture>
         <div class="trust-copy">
           <p class="eyebrow">Confiança antes da escolha</p>
           <h2>Beleza para apresentar. Segurança para decidir.</h2>
@@ -593,7 +622,7 @@
           <details><summary>Preciso comprar a coleção completa?</summary><p>Não. As imagens apresentam direções visuais. A consultora monta uma seleção compatível com sua faixa de investimento e com as peças disponíveis.</p></details>
           <details><summary>Os valores de R$ 1.500, R$ 3.000 e R$ 6.000 são kits fechados?</summary><p>Nesta primeira etapa, eles representam faixas de intenção para orientar a proposta. A composição e o valor final são confirmados antes do pedido.</p></details>
           <details><summary>Posso escolher peças e categorias?</summary><p>Sim. Você poderá informar suas prioridades e ajustar a seleção com a consultora, respeitando disponibilidade, tamanhos e condições comerciais.</p></details>
-          <details><summary>Qual é o pedido mínimo?</summary><p>O pedido mínimo no atacado é de R$ 600. Para esta proposta de curadoria, as faixas recomendadas começam em R$ 1.500.</p></details>
+          <details><summary>Qual é o pedido mínimo?</summary><p>O pedido mínimo no atacado é de R$ 600. Compras entre R$ 600 e R$ 1.499 são aceitas normalmente; as faixas de R$ 1.500, R$ 3.000 e R$ 6.000+ são referências para organizar propostas de curadoria com diferentes amplitudes.</p></details>
           <details><summary>Vou receber um catálogo?</summary><p>O atendimento começa pela sua operação, direção visual e investimento. A consultora poderá apresentar as peças relevantes durante a montagem da proposta, evitando um envio genérico e sem contexto.</p></details>
           <details><summary>Como funcionam frete, prazo e pagamento?</summary><p>As condições aplicáveis ao pedido serão informadas pela consultora antes do fechamento.</p></details>
         </div>
@@ -614,26 +643,40 @@
           <div class="form-stage"><b>Depois do envio:</b> seus dados serão registrados e você seguirá para o WhatsApp da consultora responsável pelo atendimento.</div>
         </div>
 
-        <form id="leadForm">
+        <form id="leadForm" novalidate>
           <input type="hidden" id="consultora-id" name="consultora_id">
           <input type="hidden" id="consultora-nome" name="consultora_nome">
           <input type="hidden" id="consultora-canal" name="consultora_canal">
-          <div class="fields">
-            <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required></div>
-            <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
-            <div class="field"><label for="cidade">Cidade e estado</label><input id="cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Goiânia, GO" required></div>
-            <div class="field"><label for="operacao">Como você vende?</label><select id="operacao" name="operacao" required><option value="">Selecione</option><option>Loja física</option><option>Loja física + online</option><option>E-commerce ou Instagram</option><option>Revenda por atendimento</option><option>Estou começando</option></select></div>
-            <div class="field"><label for="objetivo">Qual é o principal objetivo desta compra?</label><select id="objetivo" name="objetivo" required><option value="">Selecione</option><option>Renovar minha vitrine</option><option>Reforçar categorias que já vendo</option><option>Experimentar uma nova direção</option><option>Criar mais combinações</option><option>Montar meu primeiro estoque</option><option>Quero uma recomendação</option></select></div>
-            <div class="field"><label for="direcao">Direção visual</label><select id="direcao" name="direcao" required><option value="">Selecione</option><option>Camadas &amp; Luminosidade</option><option>Cor &amp; Presença</option><option>Quero combinar as duas</option><option>Prefiro uma recomendação</option></select></div>
-            <div class="field"><label for="faixa-investimento">Faixa de investimento</label><select id="faixa-investimento" name="investimento" required><option value="">Selecione</option><option>Até R$ 1.500</option><option>R$ 1.500</option><option>R$ 3.000</option><option>R$ 6.000 ou mais</option><option>Ainda não defini</option></select></div>
-            <div class="field"><label for="categorias">Categorias prioritárias</label><select id="categorias" name="categorias" required><option value="">Selecione</option><option>Colares</option><option>Brincos</option><option>Anéis</option><option>Pulseiras</option><option>Quero variedade</option><option>Preciso de orientação</option></select></div>
-            <div class="field"><label for="prazo">Quando pretende comprar?</label><select id="prazo" name="prazo" required><option value="">Selecione</option><option>Nos próximos 7 dias</option><option>Nos próximos 30 dias</option><option>Nos próximos 60 dias</option><option>Estou pesquisando</option></select></div>
-            <div class="field full">
-              <button class="btn btn-primary" type="submit">Solicitar minha proposta de curadoria</button>
-              <p class="privacy-note">Ao enviar, você autoriza o contato comercial da Hilst pelos dados informados.</p>
-              <div class="form-status" id="formStatus" aria-live="polite"></div>
-            </div>
+          <div class="form-progress" aria-label="Progresso do formulário">
+            <div class="form-progress-row"><span id="stepLabel">Etapa 1 de 2</span><span id="stepName">Sobre sua próxima compra</span></div>
+            <div class="progress-track" aria-hidden="true"><span class="progress-value" id="progressValue"></span></div>
           </div>
+
+          <fieldset class="form-step" id="formStep1">
+            <legend class="form-step-title">Sobre sua próxima compra</legend>
+            <div class="fields">
+              <div class="field"><label for="operacao">Como você vende?</label><select id="operacao" name="operacao" required><option value="">Selecione</option><option>Loja física</option><option>Loja física + online</option><option>E-commerce próprio</option><option>Instagram/WhatsApp com operação de vendas ativa</option><option>Revenda por atendimento com clientes ativos</option></select></div>
+              <div class="field"><label for="objetivo">Qual é o principal objetivo desta compra?</label><select id="objetivo" name="objetivo" required><option value="">Selecione</option><option>Renovar minha vitrine ou coleção</option><option>Reforçar categorias que já vendem</option><option>Ampliar a variedade da minha seleção</option><option>Criar mais combinações para minhas clientes</option><option>Testar uma nova direção em parte da seleção</option><option>Quero uma recomendação para organizar minha próxima compra</option></select></div>
+              <div class="field"><label for="faixa-investimento">Qual valor você pretende investir nesta compra no atacado?</label><select id="faixa-investimento" name="investimento" required><option value="">Selecione</option><option>De R$ 600 a R$ 1.499</option><option>De R$ 1.500 a R$ 2.999</option><option>De R$ 3.000 a R$ 5.999</option><option>R$ 6.000 ou mais</option><option>Ainda estou definindo, mas pretendo comprar em até 60 dias</option></select><p class="field-help">Pedido mínimo de R$ 600. Sua resposta ajuda a consultora a indicar o ponto de partida mais adequado.</p></div>
+              <div class="field"><label for="prazo">Quando pretende realizar esta compra?</label><select id="prazo" name="prazo" required><option value="">Selecione</option><option>Nos próximos 7 dias</option><option>Nos próximos 30 dias</option><option>Entre 31 e 60 dias</option><option>Entre 61 e 90 dias</option><option>Estou planejando uma compra futura</option></select></div>
+              <div class="form-nav"><button class="btn btn-primary" id="nextStep" type="button">Continuar</button></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" id="formStep2" hidden>
+            <legend class="form-step-title">Dados para preparar a proposta</legend>
+            <div class="fields">
+              <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required></div>
+              <div class="field"><label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
+              <div class="field"><label for="cidade">Cidade e estado</label><input id="cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Goiânia, GO" required></div>
+              <div class="field"><label for="instagram-site">Instagram, site ou principal canal digital</label><input id="instagram-site" name="instagram_site" autocomplete="url" placeholder="@sualoja, site ou Loja física sem canal online"></div>
+              <div class="field full"><label>Quais categorias você deseja priorizar?</label><div class="choice-grid" id="categoryChoices"><label class="choice"><input type="checkbox" name="categorias_opcoes" value="Brincos">Brincos</label><label class="choice"><input type="checkbox" name="categorias_opcoes" value="Colares">Colares</label><label class="choice"><input type="checkbox" name="categorias_opcoes" value="Anéis">Anéis</label><label class="choice"><input type="checkbox" name="categorias_opcoes" value="Pulseiras">Pulseiras</label><label class="choice"><input type="checkbox" name="categorias_opcoes" value="Conjuntos e combinações">Conjuntos e combinações</label><label class="choice"><input type="checkbox" name="categorias_opcoes" value="Mix equilibrado">Mix equilibrado</label><label class="choice"><input type="checkbox" name="categorias_opcoes" value="Quero uma recomendação">Quero uma recomendação</label></div></div>
+              <div class="field full"><label for="direcao">Qual direção visual mais combina com suas clientes?</label><select id="direcao" name="direcao"><option value="">Selecione, se já souber</option><option>Camadas &amp; Luminosidade</option><option>Cor &amp; Presença</option><option>Quero combinar as duas</option><option>Prefiro uma recomendação</option></select></div>
+              <div class="field full"><p class="field-help">Suas respostas ajudam a consultora a preparar um ponto de partida mais alinhado à sua operação.</p></div>
+              <div class="form-nav"><button class="btn btn-soft" id="previousStep" type="button">Voltar</button><button class="btn btn-primary" type="submit">Receber minha proposta pelo WhatsApp</button></div>
+              <div class="field full"><p class="privacy-note">Ao enviar, você autoriza o contato comercial da Hilst pelos dados informados.</p><div class="form-status" id="formStatus" aria-live="polite"></div></div>
+            </div>
+          </fieldset>
         </form>
       </div>
     </section>
@@ -664,19 +707,30 @@
     </div>
   </footer>
 
-  <a class="mobile-cta" href="#contato">Solicitar minha proposta</a>
+  <a class="mobile-cta" href="#contato">Montar minha proposta de compra</a>
 
   <script src="assets/lead-routing.js"></script>
   <script src="assets/tracking.js"></script>
   <script>
     const form = document.getElementById('leadForm');
+    const formStep1 = document.getElementById('formStep1');
+    const formStep2 = document.getElementById('formStep2');
+    const nextStepButton = document.getElementById('nextStep');
+    const previousStepButton = document.getElementById('previousStep');
+    const stepLabel = document.getElementById('stepLabel');
+    const stepName = document.getElementById('stepName');
+    const progressValue = document.getElementById('progressValue');
     const direction = document.getElementById('direcao');
     const investment = document.getElementById('faixa-investimento');
     const status = document.getElementById('formStatus');
     const mobileCta = document.querySelector('.mobile-cta');
     const submitButton = form.querySelector('button[type="submit"]');
     const leadEndpoint = 'https://script.google.com/macros/s/AKfycbyvQJ1sirenEFTZt4p86quSBULz5YIpv-lT9Ot6jDWcp7LU_On8HVv6PjO1Fk8lzrpl/exec';
+    const formVersion = 'icp2_progressivo_v2';
     let isSubmitting = false;
+    let formStartedAt = '';
+    let formStartedPerformance = 0;
+    let stepOneTracked = false;
 
     function wait(milliseconds) {
       return new Promise(resolve => window.setTimeout(resolve, milliseconds));
@@ -714,10 +768,37 @@
       throw lastError;
     }
 
+    function startFormIfNeeded() {
+      if (formStartedAt) return;
+      formStartedAt = new Date().toISOString();
+      formStartedPerformance = window.performance.now();
+      if (window.HilstTracking) window.HilstTracking.trackFormStart(formVersion);
+    }
+
+    function showStep(step) {
+      const isFirst = step === 1;
+      formStep1.hidden = !isFirst;
+      formStep2.hidden = isFirst;
+      stepLabel.textContent = `Etapa ${step} de 2`;
+      stepName.textContent = isFirst ? 'Sobre sua próxima compra' : 'Dados para preparar a proposta';
+      progressValue.style.width = isFirst ? '50%' : '100%';
+      if (!isFirst) window.setTimeout(() => document.getElementById('nome').focus({ preventScroll: true }), 80);
+    }
+
+    function validateStep(stepElement) {
+      const requiredFields = Array.from(stepElement.querySelectorAll('[required]'));
+      const invalid = requiredFields.find(field => !field.checkValidity());
+      if (!invalid) return true;
+      invalid.reportValidity();
+      if (window.HilstTracking) window.HilstTracking.trackFormError('validation');
+      return false;
+    }
+
     function selectAndGo(select, value) {
       select.value = value;
+      showStep(1);
       document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
-      window.setTimeout(() => select.focus({ preventScroll: true }), 550);
+      window.setTimeout(() => document.getElementById('operacao').focus({ preventScroll: true }), 550);
     }
 
     document.querySelectorAll('.select-direction').forEach(button => {
@@ -727,6 +808,21 @@
     document.querySelectorAll('.select-investment').forEach(button => {
       button.addEventListener('click', () => selectAndGo(investment, button.dataset.investment));
     });
+
+    form.addEventListener('focusin', startFormIfNeeded, { once: true });
+    form.addEventListener('change', startFormIfNeeded, { once: true });
+
+    nextStepButton.addEventListener('click', () => {
+      startFormIfNeeded();
+      if (!validateStep(formStep1)) return;
+      if (!stepOneTracked && window.HilstTracking) {
+        window.HilstTracking.trackQualificationStepComplete(formVersion);
+        stepOneTracked = true;
+      }
+      showStep(2);
+    });
+
+    previousStepButton.addEventListener('click', () => showStep(1));
 
     document.getElementById('whatsapp').addEventListener('input', event => {
       const digits = event.target.value.replace(/\D/g, '').slice(0, 11);
@@ -738,6 +834,15 @@
     form.addEventListener('submit', async event => {
       event.preventDefault();
       if (isSubmitting) return;
+      startFormIfNeeded();
+      if (!validateStep(formStep1)) {
+        showStep(1);
+        return;
+      }
+      if (!validateStep(formStep2)) {
+        showStep(2);
+        return;
+      }
       isSubmitting = true;
       submitButton.disabled = true;
       submitButton.textContent = 'Enviando seus dados...';
@@ -746,15 +851,25 @@
       try {
         const payload = new URLSearchParams(new FormData(form));
         const objective = document.getElementById('objetivo').value;
-        const categories = document.getElementById('categorias').value;
+        const categories = Array.from(form.querySelectorAll('input[name="categorias_opcoes"]:checked')).map(input => input.value);
         const phoneDigits = document.getElementById('whatsapp').value.replace(/\D/g, '');
         if (phoneDigits.length < 10 || phoneDigits.length > 11) {
           throw new Error('Confira o WhatsApp informado, incluindo o DDD.');
         }
         payload.set('whatsapp', phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`);
-        payload.set('categorias', categories);
+        payload.delete('categorias_opcoes');
+        payload.set('categorias', categories.length ? categories.join(', ') : 'Quero uma recomendação');
+        payload.set('direcao', direction.value || 'Prefiro uma recomendação');
         payload.set('objetivo', objective);
         payload.set('origem_lp', 'LP ICP 2');
+        payload.set('origem_detalhada', 'LP ICP2');
+        payload.set('tipo_entrada', 'LP');
+        payload.set('oferta_icp_origem', 'ICP2 | Curadoria');
+        payload.set('form_version', formVersion);
+        payload.set('form_started_at', formStartedAt);
+        payload.set('form_completed_at', new Date().toISOString());
+        payload.set('form_duration_seconds', String(Math.max(1, Math.round((window.performance.now() - formStartedPerformance) / 1000))));
+        payload.set('elegivel_meta', 'Sim');
         if (window.HilstTracking) window.HilstTracking.appendToPayload(payload);
 
         const result = await sendLeadWithRetry(payload);
@@ -762,7 +877,7 @@
 
         const consultant = result.consultant;
         if (window.HilstTracking) {
-          window.HilstTracking.trackLead(result.leadId);
+          if (!result.duplicate) window.HilstTracking.trackLead(result.leadId);
           window.HilstTracking.trackContact(`${result.leadId}-contact`);
         }
         document.getElementById('consultora-id').value = consultant.id;
@@ -776,12 +891,13 @@
           window.location.href = `https://wa.me/${consultant.phone}?text=${encodeURIComponent(message)}`;
         }, 500);
       } catch (error) {
+        if (window.HilstTracking) window.HilstTracking.trackFormError('submission');
         status.textContent = error.message && error.message.indexOf('WhatsApp') >= 0
           ? error.message
           : 'Não conseguimos confirmar o envio agora. Aguarde alguns segundos e tente novamente; seu cadastro não será duplicado.';
         isSubmitting = false;
         submitButton.disabled = false;
-        submitButton.textContent = 'Solicitar minha proposta de curadoria';
+        submitButton.textContent = 'Receber minha proposta pelo WhatsApp';
       }
     });
 
