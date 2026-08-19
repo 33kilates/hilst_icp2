@@ -185,11 +185,21 @@
     .proposal-note{margin:15px 0 0;color:var(--muted);font-size:.67rem}
 
     .trust{background:var(--ink);color:#fff}
-    .trust-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
-    .trust-photo{width:100%;height:610px;object-fit:cover;object-position:center 28%;border-radius:28px}
+    .trust-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
+    .trust-visual{display:grid;gap:11px}
+    .trust-bank-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:26px}
+    .trust-image-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+    .trust-image-strip picture{display:block;min-width:0}
+    .trust-image-strip img{display:block;width:100%;height:118px;object-fit:cover;border-radius:13px}
+    .trust-media-caption{margin:2px 0 0;color:#a99b9c;font-size:.66rem;line-height:1.45}
     .trust-copy .eyebrow{color:#ddb4b1}
     .trust-copy h2{margin:0 0 18px;font:700 clamp(2.35rem,4.3vw,4rem)/1.02 "Playfair Display",Georgia,serif;letter-spacing:-.04em}
     .trust-copy>p{margin:0;color:#d2c5c6}
+    .trust-proof{display:flex;flex-wrap:wrap;align-items:center;gap:8px 11px;margin-top:25px;padding:13px 15px;border:1px solid #564649;border-radius:14px;background:#2b2325}
+    .trust-proof .google-g{width:24px;height:24px;margin:0}
+    .trust-proof .stars{font-size:.86rem}
+    .trust-proof strong{font-size:.78rem}
+    .trust-proof>span:last-child{color:#c8babb;font-size:.7rem}
     .trust-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
     .trust-fact{padding:18px;border:1px solid #493d3f;border-radius:16px;background:var(--ink-soft)}
     .trust-fact b{display:block;margin-bottom:5px;font:700 1.02rem "Playfair Display",Georgia,serif;color:#f4e8e7}
@@ -261,7 +271,7 @@
       .awareness-grid,.tangible-grid,.trust-grid{gap:42px}
       .process-grid{grid-template-columns:repeat(3,1fr)}
       .direction-gallery{height:440px}
-      .trust-photo{height:540px}
+      .trust-image-strip img{height:150px}
       .form-wrap{padding:38px}
       .collection-flow{grid-template-columns:repeat(3,1fr)}
       .collection-step:not(:last-child)::after{display:none}
@@ -300,7 +310,7 @@
       .investment-card{min-height:0}
       .investment-card.featured{transform:none}
       .proposal-data,.trust-facts{grid-template-columns:1fr}
-      .trust-photo{height:430px}
+      .trust-image-strip img{height:108px}
       .form-wrap{padding:28px 22px;gap:32px}
       .fields{grid-template-columns:1fr}
       .field.full{grid-column:auto}
@@ -325,7 +335,9 @@
       .investment-card{padding:25px}
       .proposal-body{padding:22px}
       .proposal-head{padding:18px 20px}
-      .trust-photo{height:380px}
+      .trust-bank-photo{border-radius:20px}
+      .trust-image-strip{gap:6px}
+      .trust-image-strip img{height:88px;border-radius:10px}
       .footer-inner{gap:34px}
       .footer-center .footer-message{font-size:1.15rem}
     }
@@ -589,20 +601,34 @@
 
     <section class="trust">
       <div class="container trust-grid">
-        <picture>
-          <source type="image/avif" srcset="assets/responsive/icp2-product-macro-480.avif 480w, assets/responsive/icp2-product-macro-768.avif 768w, assets/responsive/icp2-product-macro-1200.avif 1200w" sizes="(max-width: 980px) calc(100vw - 48px), 44vw">
-          <source type="image/webp" srcset="assets/responsive/icp2-product-macro-480.webp 480w, assets/responsive/icp2-product-macro-768.webp 768w, assets/responsive/icp2-product-macro-1200.webp 1200w" sizes="(max-width: 980px) calc(100vw - 48px), 44vw">
-          <img class="trust-photo" src="assets/icp2-product-macro.jpg" width="1200" height="2131" alt="Detalhe de acabamento de joia em Prata 925 Hilst" loading="lazy" decoding="async">
-        </picture>
+        <div class="trust-visual">
+          <picture>
+            <source type="image/avif" srcset="assets/responsive/bank-reference-480.avif 480w, assets/responsive/bank-reference-768.avif 768w, assets/responsive/bank-reference-1200.avif 1200w" sizes="(max-width: 980px) calc(100vw - 30px), 48vw">
+            <source type="image/webp" srcset="assets/responsive/bank-reference-480.webp 480w, assets/responsive/bank-reference-768.webp 768w, assets/responsive/bank-reference-1200.webp 1200w" sizes="(max-width: 980px) calc(100vw - 30px), 48vw">
+            <img class="trust-bank-photo" src="assets/bank-reference.jpg" width="1536" height="1117" alt="Banco de imagens Hilst apresentado em computador e celular" loading="lazy" decoding="async">
+          </picture>
+          <div class="trust-image-strip" aria-label="Exemplos de fotos disponíveis para divulgação">
+            <picture><source type="image/avif" srcset="assets/responsive/direcao-camadas-01-360.avif 360w, assets/responsive/direcao-camadas-01-600.avif 600w"><source type="image/webp" srcset="assets/responsive/direcao-camadas-01-360.webp 360w, assets/responsive/direcao-camadas-01-600.webp 600w"><img src="assets/direcao-camadas-01.jpg" width="600" height="800" alt="Composição fotográfica de joias em Prata 925" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="assets/responsive/direcao-presenca-02-360.avif 360w, assets/responsive/direcao-presenca-02-600.avif 600w"><source type="image/webp" srcset="assets/responsive/direcao-presenca-02-360.webp 360w, assets/responsive/direcao-presenca-02-600.webp 600w"><img src="assets/direcao-presenca-02.jpg" width="600" height="800" alt="Foto de joia em Prata 925 pronta para divulgação" loading="lazy" decoding="async"></picture>
+            <picture><source type="image/avif" srcset="assets/responsive/direcao-camadas-03-360.avif 360w, assets/responsive/direcao-camadas-03-600.avif 600w"><source type="image/webp" srcset="assets/responsive/direcao-camadas-03-360.webp 360w, assets/responsive/direcao-camadas-03-600.webp 600w"><img src="assets/direcao-camadas-03.jpg" width="600" height="800" alt="Imagem de apoio para apresentar peças nos canais de venda" loading="lazy" decoding="async"></picture>
+          </div>
+          <p class="trust-media-caption">Exemplos do apoio visual disponível para apresentar as peças em seus canais de venda.</p>
+        </div>
         <div class="trust-copy">
           <p class="eyebrow">Confiança antes da escolha</p>
           <h2>Beleza para apresentar. Segurança para decidir.</h2>
           <p>A proposta combina o universo visual das joias com informações objetivas para conduzir uma compra no atacado.</p>
+          <div class="trust-proof" aria-label="Avaliação da Hilst no Google">
+            <img class="google-g" src="assets/google-g.webp" alt="Google">
+            <span class="stars" aria-label="Cinco estrelas">★★★★★</span>
+            <strong>4,9 no Google</strong>
+            <span>Mais de 110 avaliações</span>
+          </div>
           <div class="trust-facts">
             <div class="trust-fact"><b>Prata 925 legítima</b><span>O acervo apresentado nesta página é composto por joias em Prata 925.</span></div>
             <div class="trust-fact"><b>Garantia permanente</b><span>Contra defeitos de fabricação relacionados ao metal, conforme regras da Hilst.</span></div>
             <div class="trust-fact"><b>Atendimento humano</b><span>Uma consultora acompanha a seleção e os ajustes comerciais.</span></div>
-            <div class="trust-fact"><b>Composição transparente</b><span>Peças e valores são confirmados antes do fechamento do pedido.</span></div>
+            <div class="trust-fact"><b>Banco de imagens para divulgação</b><span>Materiais de apoio para apresentar as peças em seus canais de venda.</span></div>
           </div>
         </div>
       </div>
@@ -689,12 +715,12 @@
       </div>
 
       <div class="footer-review">
-        <a class="google-link" href="https://www.google.com/maps/place/Hilst+Joias+%E2%80%93+Atacado+de+Prata+925+e+Atacado+de+Semijoais/@-22.5876291,-47.3782406,17z/data=!4m8!3m7!1s0x94c881fb477b8a9f:0xd4792d79f521768f!8m2!3d-22.5876291!4d-47.3756657!9m1!1b1!16s%2Fg%2F11t5tc4zp8?entry=ttu&amp;g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver avaliações da Hilst no Google">
+        <div class="google-link" aria-label="Avaliação da Hilst no Google">
           <img class="google-g" src="assets/google-g.webp" alt="Google">
           <span class="stars" aria-label="Cinco estrelas">★★★★★</span>
           <span class="review-title">Avaliação 4,9 no Google</span>
-          <span class="review-count">115 avaliações</span>
-        </a>
+          <span class="review-count">Mais de 110 avaliações</span>
+        </div>
       </div>
     </div>
   </footer>
