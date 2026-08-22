@@ -76,7 +76,7 @@
 
   function trackLead(eventId) {
     if (!META_PIXEL_ID || !window.fbq || !eventId) return;
-    window.fbq('track', 'Lead', { content_name: 'Mix de valor Hilst ICP 2', lp_variant: 'mix_valor_v1' }, { eventID: eventId });
+    window.fbq('track', 'Lead', { content_name: 'Catálogo Inteligente Hilst | ICP 2', lp_variant: 'catalogo_inteligente_v1' }, { eventID: eventId });
   }
 
   function trackContact(eventId) {
