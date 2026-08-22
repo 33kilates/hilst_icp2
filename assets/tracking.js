@@ -76,7 +76,7 @@
 
   function trackLead(eventId) {
     if (!META_PIXEL_ID || !window.fbq || !eventId) return;
-    window.fbq('track', 'Lead', { content_name: 'Curadoria Hilst ICP 2' }, { eventID: eventId });
+    window.fbq('track', 'Lead', { content_name: 'Mix de valor Hilst ICP 2', lp_variant: 'mix_valor_v1' }, { eventID: eventId });
   }
 
   function trackContact(eventId) {
@@ -99,6 +99,11 @@
     window.fbq('trackCustom', 'FormError', { error_type: errorType || 'unknown' });
   }
 
+  function trackCustom(eventName, data) {
+    if (!META_PIXEL_ID || !window.fbq || !eventName) return;
+    window.fbq('trackCustom', eventName, data || {});
+  }
+
   initializePixel();
   window.HilstTracking = {
     appendToPayload,
@@ -106,6 +111,7 @@
     trackContact,
     trackFormStart,
     trackQualificationStepComplete,
-    trackFormError
+    trackFormError,
+    trackCustom
   };
 })();
