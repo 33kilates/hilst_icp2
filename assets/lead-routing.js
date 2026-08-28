@@ -3,7 +3,8 @@
 
   const consultants = [
     { id: 'eduarda', name: 'Eduarda', channel: 'online', phone: '5519983053808', weight: 45 },
-    { id: 'giovana', name: 'Giovana', channel: 'online', phone: '5519982042290', weight: 45 },
+    { id: 'giovana', name: 'Giovana', channel: 'online', phone: '5519982042290', weight: 20 },
+    { id: 'joice', name: 'Joice', channel: 'online', phone: '5519981482795', weight: 25 },
     { id: 'melissa', name: 'Melissa', channel: 'loja_fisica', phone: '5519981136934', weight: 5 },
     { id: 'karol', name: 'Karol', channel: 'loja_fisica', phone: '5519982511645', weight: 5 }
   ];
