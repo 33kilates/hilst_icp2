@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const PREVIEW_MODE = window.HILST_PREVIEW_MODE !== false || /^(127\.0\.0\.1|localhost)$/.test(location.hostname) || location.protocol === 'file:';
-  const RULE_VERSION = 'guided-v3-min300-2026-10-11';
+  const RULE_VERSION = 'guided-v3-min300-route-2026-10-13';
   const CATALOG_SNAPSHOT = 'conectavenda-2026-10-08';
   const MIN_CENTS = 30000;
   const PIX_CENTS = 100000;
@@ -142,6 +142,24 @@
   function bindResults(){const node=$('#v3-results');$$('[data-remove]',node).forEach(button=>button.addEventListener('click',()=>{state.selected=state.selected.filter(id=>id!==button.dataset.remove);track('item_removed',{code:button.dataset.remove,subtotal_cents:totals().subtotal});renderResults();}));$$('[data-add]',node).forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.add,budget=state.budget==='undefined'?150000:Number(state.budget);if(totals().subtotal+byId[id].cents>budget)return;state.selected.push(id);track('item_added',{code:id,subtotal_cents:totals().subtotal});renderResults();}));$$('[data-alternative]',node).forEach(button=>button.addEventListener('click',()=>{state.selected=[...state.alternatives[Number(button.dataset.alternative)]];track('alternative_selected',{subtotal_cents:totals().subtotal});renderResults();}));$$('[data-edit]',node).forEach(button=>button.addEventListener('click',()=>{$('#v3-answers').scrollIntoView({behavior:'smooth',block:'start'});$('#v3-operation').focus();}));$('[data-contact-selection]',node)?.addEventListener('click',()=>track('contact_selection_click',{subtotal_cents:totals().subtotal}));}
   function updateContactSummary(){const box=$('#v3-contact-summary'),button=$('#submit-form');if(!state.goal){box.textContent='Sem simulação. A consultora também pode ajudar você a comparar as peças.';button.textContent='Conversar com a consultora';return;}const t=totals();box.textContent=`Objetivo: ${goalLabels[state.goal]}\nComo vende: ${state.operation||'não informado'}\nCategorias: ${state.categories.join(', ')||'não informadas'}\nLimite em peças: ${state.budget==='undefined'?'a definir':state.budget?money(Number(state.budget)):'não informado'}\n${state.selected.length?`Modelos: ${state.selected.map(id=>`${id} (${byId[id].name})`).join(', ')}\nSubtotal: ${money(t.subtotal)} · PIX: ${t.pixEligible?money(t.pix):'não aplicável'}`:'Sem modelos escolhidos nesta amostra.'}\nA consultora confirma disponibilidade, unidade comercial e numeração; o pedido pode ser ajustado.`;button.textContent=state.selected.length?'Conversar sobre essa seleção':'Conversar com a consultora';}
   function attribution(){const params=new URLSearchParams(location.search),fields=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];return Object.fromEntries(fields.map(field=>[field,params.get(field)||'']));}
+  function appendRouteFallback(payload) {
+    if(payload.get('origem_detalhada'))return;
+    const query=new URLSearchParams(location.search),reason=query.get('hilst_route_reason');
+    const reasons={prefers_remote:'Preferiu atendimento remoto',below_3000:'Pedido abaixo de R$ 3.000',not_selling_yet:'Ainda não vende'};
+    if(query.get('hilst_route')!=='presencial_para_remoto'||!reasons[reason])return;
+    const campaign=query.get('utm_campaign')||'',id=(query.get('hilst_route_id')||'').replace(/[^a-zA-Z0-9-]/g,'').slice(0,100);
+    payload.set('origem_detalhada',`LP Representante → Atacado remoto | ${reasons[reason]}${campaign?` | Campanha: ${campaign.slice(0,500)}`:''}`);
+    payload.set('route_origin','representante');payload.set('route_reason',reason);payload.set('route_id',id);
+    payload.set('observacoes_iniciais',`${payload.get('observacoes_iniciais')||''} | ${payload.get('origem_detalhada')} | Identificador do caminho: ${id}`);
+    try {
+      const entry=new URL(query.get('hilst_entry_url')||'https://representante.hilstjoiasemprata.com.br/');
+      if(entry.protocol==='https:'&&entry.hostname==='representante.hilstjoiasemprata.com.br') {
+        const allowed=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid'];
+        [...entry.searchParams.keys()].forEach(key=>{if(!allowed.includes(key))entry.searchParams.delete(key);});entry.hash='';
+        payload.set('landing_url',entry.href);
+      }
+    }catch(_){}
+  }
   function buildPayload(data){const t=totals();const payload=new URLSearchParams();for(const[key,value]of data.entries())payload.set(key,String(value));const notes=`Objetivo: ${goalLabels[state.goal]||'Contato direto'} | Preferência: ${state.preference||'não informada'} | Categorias: ${state.categories.join(', ')||'não informadas'} | Teto mercadorias: ${state.budget==='undefined'?'não definido':state.budget?money(Number(state.budget)):'não informado'} | Modelos: ${state.selected.map(id=>`${id} [grupo ${byId[id].group}] x1 ${money(byId[id].cents)}`).join('; ')||'sem simulação'} | Subtotal: ${money(t.subtotal)} | PIX: ${t.pixEligible?`${money(t.discount)} de desconto; líquido ${money(t.pix)}`:'não elegível'} | selection_id: ${state.selectionId} | regra: ${RULE_VERSION} | catálogo: ${CATALOG_SNAPSHOT}`;
     payload.set('whatsapp',`55${String(data.get('whatsapp')||'').replace(/\D/g,'').replace(/^55/,'')}`);payload.set('operacao',state.operation);payload.set('investimento',state.budget==='undefined'?'Não definido':state.budget?`Até ${money(Number(state.budget))}`:'A confirmar');payload.set('objetivo',goalLabels[state.goal]||'Contato direto');payload.set('necessidade',goalLabels[state.goal]||'Contato direto');payload.set('categorias',state.categories.join(', ')||'A confirmar');payload.set('perfil_preco',state.preference||'A confirmar');payload.set('observacoes_iniciais',notes);payload.set('origem_lp','LP ICP2');payload.set('oferta_icp_origem','ICP2 | Seleção guiada');payload.set('form_version',RULE_VERSION);payload.set('lp_variant','guided_v3');const completedAt=new Date();payload.set('form_started_at',state.startedAt||completedAt.toISOString());payload.set('form_completed_at',completedAt.toISOString());payload.set('form_duration_seconds',String(Math.max(0,Math.round((completedAt-new Date(state.startedAt||completedAt))/1000))));payload.set('elegivel_meta','Sim');payload.set('selection_id',state.selectionId);payload.set('selection_rule_version',RULE_VERSION);payload.set('catalog_snapshot',CATALOG_SNAPSHOT);payload.set('selection_subtotal_cents',String(t.subtotal));payload.set('selection_pix_discount_cents',String(t.discount));payload.set('selection_items_json',JSON.stringify(state.selected.map(id=>({code:id,sku_group:byId[id].group,quantity_proposed:1,unit_price_cents:byId[id].cents}))));payload.set('landing_url',location.href);payload.set('event_source_url',location.href);payload.set('referrer',document.referrer);Object.entries(attribution()).forEach(([key,value])=>payload.set(key,value));window.HilstTracking?.appendToPayload(payload);return payload;}
   async function sendLeadWithRetry(payload,status){
@@ -155,6 +173,7 @@
         if(!response.ok)throw new Error(`Falha temporária (${response.status}).`);
         const result=await response.json();
         if(!result.ok){const error=new Error(result.error||'Não foi possível concluir o envio.');error.isBusinessError=true;throw error;}
+        if(!result.leadId)throw new Error('Resposta de cadastro incompleta.');
         return result;
       }catch(error){
         lastError=error;
@@ -174,11 +193,13 @@
     const phone=String(form.whatsapp.value).replace(/\D/g,'').replace(/^55/,'');
     if(phone.length<10||phone.length>11){form.whatsapp.setCustomValidity('Informe um WhatsApp com DDD.');form.whatsapp.reportValidity();form.whatsapp.setCustomValidity('');return;}
     const payload=buildPayload(new FormData(form));
+    appendRouteFallback(payload);
     if(PREVIEW_MODE){status.className='status show notice';status.textContent='Prévia: o formulário foi conferido, mas nenhum dado foi enviado à planilha ou ao WhatsApp. Resumo da escolha acima.';track('preview_form_validated',{has_selection:state.selected.length>0,subtotal_cents:totals().subtotal});return;}
     submit.disabled=true;submit.textContent='Enviando...';status.className='status';
     try{
       const result=await sendLeadWithRetry(payload,status),consultant=result.consultant||{};
-      if(result.leadId){window.HilstTracking?.trackLead(result.leadId);window.HilstTracking?.trackContact(result.leadId);}
+      if(result.leadId && !result.duplicate){window.HilstTracking?.trackLead(result.leadId);window.HilstTracking?.trackContact(result.leadId);}
+      if(result.leadId)window.HilstTracking?.trackRegisteredContact(result.leadId,!!result.duplicate);
       const consultantPhone=String(consultant.phone||'').replace(/\D/g,'');
       if(!/^55\d{10,11}$/.test(consultantPhone)){
         status.textContent='Seus dados foram registrados, mas não conseguimos abrir o WhatsApp automaticamente. A Hilst seguirá com o atendimento.';

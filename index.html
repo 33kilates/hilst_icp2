@@ -52,7 +52,7 @@
         try{const result=await sendLeadWithRetry(payload);window.HilstTracking?.trackLead(result.leadId);window.HilstTracking?.trackContact(result.leadId);const c=result.consultant||{},message=[`Olá, ${c.name||'consultora Hilst'}! Preenchi o formulário para conhecer o atacado Hilst.`,`Como e onde vendo: ${data.get('operacao')}`,`Há quanto tempo: ${data.get('tempo_operacao')}`,`Próximo investimento: ${data.get('investimento')}`,`Faturamento mensal: ${revenue}`,`O que preciso: ${data.get('necessidade')}`,`Cidade: ${data.get('cidade')}`,`Meu nome: ${data.get('nome')}`].join('\n');status.textContent=`${result.serviceMessage||'Dados recebidos.'} Abrindo o WhatsApp de ${c.name||'sua consultora'}...`;status.className='status success show';form.reset();setTimeout(()=>window.location.assign(`https://wa.me/${c.phone||'5519983053808'}?text=${encodeURIComponent(message)}`),700)}catch(error){console.error(error);window.HilstTracking?.trackFormError(error.message||'submit_error');status.textContent='Não conseguimos registrar seus dados agora. Tente novamente em alguns instantes.';status.className='status error show';submit.disabled=false;submit.textContent='Quero conhecer o atacado Hilst'}})})();
   </script>
   <script>window.HILST_PREVIEW_MODE=false;window.HILST_LEAD_ROUTING_ENDPOINT='https://script.google.com/macros/s/AKfycbyvQJ1sirenEFTZt4p86quSBULz5YIpv-lT9Ot6jDWcp7LU_On8HVv6PjO1Fk8lzrpl/exec';</script>
-  <script src="assets/tracking.js" defer></script>
-  <script src="assets/v3.js" defer></script>
+  <script src="assets/tracking.js?v=route-20261013" defer></script>
+  <script src="assets/v3.js?v=route-20261013" defer></script>
 </body>
 </html>
