@@ -208,8 +208,8 @@
         return;
       }
       const summary=state.selected.length?`Modelos que quero comparar: ${state.selected.map(id=>`${id} (${byId[id].name})`).join(', ')}`:'Quero ver opções do atacado Hilst.';
-      const message=[`Olá, ${consultant.name||'consultora Hilst'}! Preenchi o formulário no site da Hilst.`,summary,`Objetivo: ${goalLabels[state.goal]||'conhecer o atacado'}`,`Categorias: ${state.categories.join(', ')||'a definir'}`,`Até quanto quero investir: ${state.budget==='undefined'?'a definir':state.budget?money(Number(state.budget)):'a definir'}`,`Cidade: ${form.cidade.value.trim()}`,`Meu nome: ${form.nome.value.trim()}`].join('\n');
-      status.textContent=`${result.serviceMessage||'Dados recebidos.'} Abrindo o WhatsApp de ${consultant.name||'sua consultora'}...`;
+      const message=[`Olá! Preenchi o formulário no site da Hilst.`,summary,`Objetivo: ${goalLabels[state.goal]||'conhecer o atacado'}`,`Categorias: ${state.categories.join(', ')||'a definir'}`,`Até quanto quero investir: ${state.budget==='undefined'?'a definir':state.budget?money(Number(state.budget)):'a definir'}`,`Cidade: ${form.cidade.value.trim()}`,`Meu nome: ${form.nome.value.trim()}`].join('\n');
+      status.textContent=`${result.serviceMessage||'Dados recebidos.'} Abrindo o WhatsApp da Hilst...`;
       status.className='status show success';
       setTimeout(()=>window.location.assign(`https://wa.me/${consultantPhone}?text=${encodeURIComponent(message)}`),700);
     }catch(error){
